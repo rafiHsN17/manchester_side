@@ -26,29 +26,23 @@ function formatTime($time) {
     return date('H:i', strtotime($time));
 }
 
-// Get matches from database
+// Get matches
 $matches = [];
 if ($pdo) {
     try {
         $stmt = $pdo->query("SELECT * FROM matches ORDER BY match_date ASC, match_time ASC");
         $matches = $stmt->fetchAll(PDO::FETCH_ASSOC);
     } catch(PDOException $e) {
-        // Silent error
     }
 }
 
-// Sample data jika database kosong
 if (empty($matches)) {
     $matches = [
         ['id' => 1, 'home_team' => 'Manchester United', 'away_team' => 'Liverpool', 'match_date' => '2024-12-15', 'match_time' => '16:30:00', 'competition' => 'Premier League', 'venue' => 'Old Trafford', 'status' => 'upcoming', 'score' => null],
         ['id' => 2, 'home_team' => 'Manchester City', 'away_team' => 'Chelsea', 'match_date' => '2024-12-18', 'match_time' => '20:00:00', 'competition' => 'Premier League', 'venue' => 'Etihad Stadium', 'status' => 'upcoming', 'score' => null],
-        ['id' => 3, 'home_team' => 'Arsenal', 'away_team' => 'Manchester United', 'match_date' => '2024-12-22', 'match_time' => '15:00:00', 'competition' => 'Premier League', 'venue' => 'Emirates Stadium', 'status' => 'upcoming', 'score' => null],
-        ['id' => 4, 'home_team' => 'Manchester City', 'away_team' => 'Everton', 'match_date' => '2024-12-26', 'match_time' => '17:30:00', 'competition' => 'Premier League', 'venue' => 'Etihad Stadium', 'status' => 'upcoming', 'score' => null],
-        ['id' => 5, 'home_team' => 'Newcastle', 'away_team' => 'Manchester United', 'match_date' => '2024-12-30', 'match_time' => '20:00:00', 'competition' => 'Premier League', 'venue' => 'St James Park', 'status' => 'upcoming', 'score' => null],
     ];
 }
 
-// Separate matches by status
 $upcoming_matches = array_filter($matches, function($m) { return $m['status'] == 'upcoming'; });
 $completed_matches = array_filter($matches, function($m) { return $m['status'] == 'completed'; });
 ?>
@@ -57,12 +51,74 @@ $completed_matches = array_filter($matches, function($m) { return $m['status'] =
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jadwal Pertandingan - Manchester United & Manchester City | Manchester Side</title>
+    <title>Jadwal Pertandingan - Manchester Side</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/matches.css">
+    <link rel="stylesheet" href="assets/css/matches.css">
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropdown-toggle {
+            color: var(--light);
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-toggle:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 15px;
+            min-width: 250px;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .dropdown-menu a:hover {
+            background: rgba(255,255,255,0.1);
+            padding-left: 2rem;
+        }
+        
+        .dropdown-menu a.mu { border-left: 3px solid #DA291C; }
+        .dropdown-menu a.city { border-left: 3px solid #6CABDD; }
+        .dropdown-menu a.h2h { border-left: 3px solid #FBB024; }
+    </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div class="container header-content">
             <div class="logo">
@@ -71,8 +127,18 @@ $completed_matches = array_filter($matches, function($m) { return $m['status'] =
             </div>
             <nav>
                 <a href="index.php"><i class="fas fa-home"></i> Home</a>
-                <a href="manchester-united.php"><i class="fas fa-fire"></i> Manchester United</a>
-                <a href="manchester-city.php"><i class="fas fa-bolt"></i> Manchester City</a>
+                
+                <div class="dropdown">
+                    <span class="dropdown-toggle">
+                        <i class="fas fa-shield-alt"></i> Tim <i class="fas fa-chevron-down"></i>
+                    </span>
+                    <div class="dropdown-menu">
+                        <a href="manchester-united.php" class="mu">🔴 Manchester United</a>
+                        <a href="manchester-city.php" class="city">🔵 Manchester City</a>
+                        <a href="head-to-head.php" class="h2h">⚔️ Head to Head</a>
+                    </div>
+                </div>
+                
                 <a href="matches.php" class="active"><i class="fas fa-calendar"></i> Matches</a>
                 <?php if(isAdminLoggedIn()): ?>
                     <a href="admin/dashboard.php"><i class="fas fa-cog"></i> Admin</a>
@@ -81,7 +147,6 @@ $completed_matches = array_filter($matches, function($m) { return $m['status'] =
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="matches-hero">
         <div class="container">
             <div class="hero-content">
@@ -92,7 +157,6 @@ $completed_matches = array_filter($matches, function($m) { return $m['status'] =
         </div>
     </section>
 
-    <!-- Filter Tabs -->
     <section class="filter-section">
         <div class="container">
             <div class="filter-tabs">
@@ -106,7 +170,6 @@ $completed_matches = array_filter($matches, function($m) { return $m['status'] =
         </div>
     </section>
 
-    <!-- Upcoming Matches -->
     <section class="matches-section" id="upcoming-section">
         <div class="container">
             <h2 class="section-title">Pertandingan Mendatang</h2>
@@ -147,7 +210,7 @@ $completed_matches = array_filter($matches, function($m) { return $m['status'] =
                                 <span class="vs-text">VS</span>
                             </div>
 
-                            <div class="team away-team <?php echo (strpos(strtolower($match['away_team']), 'united') !== false) ? 'mu' : ((strpos(strtolower($match['away_team']), 'city') !== false) ? 'city' : ''); ?>">
+                            <div class="team away-team">
                                 <span class="team-name"><?php echo htmlspecialchars($match['away_team']); ?></span>
                                 <span class="team-badge">
                                     <?php 
@@ -176,7 +239,6 @@ $completed_matches = array_filter($matches, function($m) { return $m['status'] =
         </div>
     </section>
 
-    <!-- Completed Matches -->
     <section class="matches-section" id="completed-section" style="display: none;">
         <div class="container">
             <h2 class="section-title">Hasil Pertandingan</h2>
@@ -201,14 +263,7 @@ $completed_matches = array_filter($matches, function($m) { return $m['status'] =
                         </div>
 
                         <div class="match-body">
-                            <div class="team home-team <?php echo (strpos(strtolower($match['home_team']), 'united') !== false) ? 'mu' : ((strpos(strtolower($match['home_team']), 'city') !== false) ? 'city' : ''); ?>">
-                                <span class="team-badge">
-                                    <?php 
-                                    if (strpos(strtolower($match['home_team']), 'united') !== false) echo '🔴';
-                                    elseif (strpos(strtolower($match['home_team']), 'city') !== false) echo '🔵';
-                                    else echo '⚪';
-                                    ?>
-                                </span>
+                            <div class="team home-team">
                                 <span class="team-name"><?php echo htmlspecialchars($match['home_team']); ?></span>
                             </div>
 
@@ -216,15 +271,8 @@ $completed_matches = array_filter($matches, function($m) { return $m['status'] =
                                 <span class="final-score"><?php echo htmlspecialchars($match['score'] ?? '0-0'); ?></span>
                             </div>
 
-                            <div class="team away-team <?php echo (strpos(strtolower($match['away_team']), 'united') !== false) ? 'mu' : ((strpos(strtolower($match['away_team']), 'city') !== false) ? 'city' : ''); ?>">
+                            <div class="team away-team">
                                 <span class="team-name"><?php echo htmlspecialchars($match['away_team']); ?></span>
-                                <span class="team-badge">
-                                    <?php 
-                                    if (strpos(strtolower($match['away_team']), 'united') !== false) echo '🔴';
-                                    elseif (strpos(strtolower($match['away_team']), 'city') !== false) echo '🔵';
-                                    else echo '⚪';
-                                    ?>
-                                </span>
                             </div>
                         </div>
 
@@ -232,10 +280,6 @@ $completed_matches = array_filter($matches, function($m) { return $m['status'] =
                             <div class="competition">
                                 <i class="fas fa-trophy"></i>
                                 <?php echo htmlspecialchars($match['competition']); ?>
-                            </div>
-                            <div class="venue">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <?php echo htmlspecialchars($match['venue']); ?>
                             </div>
                         </div>
                     </div>
@@ -245,7 +289,6 @@ $completed_matches = array_filter($matches, function($m) { return $m['status'] =
         </div>
     </section>
 
-    <!-- Footer -->
     <footer>
         <div class="container">
             <div class="footer-content">
@@ -258,9 +301,6 @@ $completed_matches = array_filter($matches, function($m) { return $m['status'] =
                     <h4>Quick Links</h4>
                     <a href="index.php"><i class="fas fa-home"></i> Home</a>
                     <a href="head-to-head.php"><i class="fas fa-trophy"></i> H2H</a>
-                    <a href="injury-news.php"><i class="fas fa-medkit"></i> Injury</a>
-                    <a href="transfer.php"><i class="fas fa-exchange-alt"></i> Transfer</a>
-                    <a href="videos.php"><i class="fas fa-video"></i> Videos</a>
                 </div>
             </div>
             
@@ -270,6 +310,19 @@ $completed_matches = array_filter($matches, function($m) { return $m['status'] =
         </div>
     </footer>
 
-    <script src="js/matches.js"></script>
+    <script src="assets/js/matches.js"></script>
+    <script>
+        // Tab switching
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const tab = this.getAttribute('data-tab');
+                document.getElementById('upcoming-section').style.display = tab === 'upcoming' ? 'block' : 'none';
+                document.getElementById('completed-section').style.display = tab === 'completed' ? 'block' : 'none';
+            });
+        });
+    </script>
 </body>
 </html>
