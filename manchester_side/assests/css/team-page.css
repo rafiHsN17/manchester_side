@@ -1,0 +1,620 @@
+/* ============================================
+   Manchester Side - Team Page Styles
+   Untuk manchester-united.php dan manchester-city.php
+   ============================================ */
+
+:root {
+    --united-red: #DA291C;
+    --united-dark: #9E1B15;
+    --city-blue: #6CABDD;
+    --city-dark: #1D4ED8;
+    --dark: #0F172A;
+    --light: #F8FAFC;
+    --gray: #64748B;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+    color: var(--light);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, var(--united-red), var(--city-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--light);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+nav a.active {
+    background: var(--united-red);
+}
+
+/* Team Hero */
+.team-hero {
+    background: linear-gradient(135deg, rgba(218, 41, 28, 0.2), rgba(15, 23, 42, 0.9));
+    padding: 120px 0 80px;
+    text-align: center;
+}
+
+.team-badge-large {
+    font-size: 5rem;
+    margin-bottom: 1rem;
+    color: var(--united-red);
+}
+
+.team-hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--united-red);
+}
+
+.team-nickname {
+    font-size: 1.3rem;
+    color: var(--gray);
+    margin-bottom: 3rem;
+}
+
+.team-stats {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.team-stat {
+    text-align: center;
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--united-red);
+}
+
+.stat-label {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+/* Matches Section */
+.matches-section {
+    margin: 3rem 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.matches-table {
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.match-row {
+    display: grid;
+    grid-template-columns: 150px 1fr 200px 150px;
+    gap: 1rem;
+    padding: 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    align-items: center;
+}
+
+.match-row:last-child {
+    border-bottom: none;
+}
+
+.match-date .date {
+    display: block;
+    font-weight: 600;
+}
+
+.match-date .time {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.match-fixture {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.current-team {
+    color: var(--united-red);
+    font-weight: 700;
+}
+
+.vs {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.match-competition .competition {
+    display: block;
+    font-weight: 600;
+}
+
+.match-competition .venue {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.upcoming-badge {
+    background: var(--united-red);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* News Section */
+.team-news {
+    margin: 4rem 0;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.news-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: transform 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+}
+
+.news-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.category-badge {
+    background: var(--united-red);
+    color: white;
+    padding: 0.4rem 1rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+}
+
+.news-date {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.news-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.news-excerpt {
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+}
+
+.news-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.share-btn {
+    background: transparent;
+    border: 1px solid var(--united-red);
+    color: var(--united-red);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.share-btn:hover {
+    background: var(--united-red);
+    color: white;
+}
+
+/* Info Cards Section */
+.info-cards {
+    margin: 4rem 0;
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.info-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 2.5rem;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.info-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(218, 41, 28, 0.3);
+    border-color: var(--united-red);
+}
+
+.info-card i {
+    font-size: 3rem;
+    color: var(--united-red);
+    margin-bottom: 1rem;
+}
+
+.info-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.info-card p {
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+}
+
+.info-card .btn {
+    background: var(--united-red);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 25px;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.info-card .btn:hover {
+    background: var(--united-dark);
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+    overflow-y: auto;
+}
+
+.modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+    border-radius: 20px;
+    padding: 3rem;
+    max-width: 900px;
+    width: 100%;
+    max-height: 85vh;
+    overflow-y: auto;
+    position: relative;
+    border: 1px solid rgba(255,255,255,0.1);
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--united-red);
+}
+
+.modal-header h2 {
+    font-size: 2rem;
+    color: var(--united-red);
+}
+
+.close-modal {
+    background: transparent;
+    border: none;
+    color: var(--gray);
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-modal:hover {
+    color: var(--united-red);
+    transform: rotate(90deg);
+}
+
+/* Stats Grid in Modal */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-item {
+    background: rgba(255,255,255,0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.stat-value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--united-red);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    color: var(--gray);
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+/* Achievements List */
+.achievements-list {
+    display: grid;
+    gap: 1.5rem;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.achievement-item {
+    background: rgba(255,255,255,0.05);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border-left: 4px solid var(--united-red);
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.achievement-year {
+    background: var(--united-red);
+    color: white;
+    padding: 0.8rem 1.5rem;
+    border-radius: 15px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    min-width: 80px;
+    text-align: center;
+}
+
+.achievement-title {
+    font-size: 1.2rem;
+    color: var(--light);
+    font-weight: 600;
+}
+
+/* History Content */
+.history-content {
+    background: rgba(255,255,255,0.05);
+    padding: 2rem;
+    border-radius: 15px;
+    border-left: 4px solid var(--united-red);
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: var(--light);
+}
+
+/* Competition Stats */
+.competition-stats {
+    margin-top: 3rem;
+}
+
+.competition-title {
+    color: var(--united-red);
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+}
+
+/* Footer */
+footer {
+    background: rgba(15, 23, 42, 0.95);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 3rem 0 2rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--united-red), var(--city-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+.footer-description {
+    color: var(--gray);
+    line-height: 1.6;
+}
+
+.footer-links h4 {
+    color: var(--light);
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    display: block;
+    color: var(--gray);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--united-red);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: var(--gray);
+}
+
+/* Manchester City Specific Colors */
+body.manchester-city .team-badge-large,
+body.manchester-city .team-hero h1,
+body.manchester-city .stat-number,
+body.manchester-city .current-team,
+body.manchester-city .upcoming-badge,
+body.manchester-city .category-badge,
+body.manchester-city .share-btn,
+body.manchester-city .info-card i,
+body.manchester-city .info-card .btn,
+body.manchester-city .modal-header,
+body.manchester-city .modal-header h2,
+body.manchester-city .close-modal:hover,
+body.manchester-city .stat-value,
+body.manchester-city .achievement-item,
+body.manchester-city .achievement-year,
+body.manchester-city .history-content,
+body.manchester-city .competition-title,
+body.manchester-city .footer-links a:hover {
+    color: var(--city-blue);
+    border-color: var(--city-blue);
+}
+
+body.manchester-city .upcoming-badge,
+body.manchester-city .category-badge,
+body.manchester-city .info-card .btn,
+body.manchester-city .achievement-year {
+    background: var(--city-blue);
+}
+
+body.manchester-city .share-btn:hover,
+body.manchester-city .info-card .btn:hover {
+    background: var(--city-dark);
+}
+
+body.manchester-city .info-card:hover {
+    box-shadow: 0 20px 40px rgba(108, 171, 221, 0.3);
+    border-color: var(--city-blue);
+}
+
+body.manchester-city nav a.active {
+    background: var(--city-blue);
+}
+
+body.manchester-city .team-hero {
+    background: linear-gradient(135deg, rgba(108, 171, 221, 0.2), rgba(15, 23, 42, 0.9));
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .team-hero h1 { font-size: 2.5rem; }
+    .team-stats { flex-direction: column; gap: 1.5rem; }
+    .match-row { grid-template-columns: 1fr; gap: 0.5rem; }
+    .news-grid, .cards-grid { grid-template-columns: 1fr; }
+    .footer-content { grid-template-columns: 1fr; }
+    nav { display: none; }
+    .modal-content { padding: 2rem 1.5rem; }
+}

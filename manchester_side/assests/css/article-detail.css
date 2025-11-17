@@ -1,0 +1,416 @@
+/* ============================================
+   Manchester Side - Article Detail Page
+   ============================================ */
+
+:root {
+    --united-red: #DA291C;
+    --united-dark: #9E1B15;
+    --city-blue: #6CABDD;
+    --city-dark: #1D4ED8;
+    --dark: #0F172A;
+    --light: #F8FAFC;
+    --gray: #64748B;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+    color: var(--light);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Header */
+header {
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    background: linear-gradient(135deg, var(--united-red), var(--city-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 800;
+}
+
+nav {
+    display: flex;
+    gap: 2rem;
+}
+
+nav a {
+    color: var(--light);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+}
+
+nav a:hover {
+    background: rgba(255,255,255,0.1);
+}
+
+/* Main Content */
+main {
+    padding-top: 100px;
+    padding-bottom: 4rem;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    font-size: 0.9rem;
+    color: var(--gray);
+}
+
+.breadcrumb a {
+    color: var(--gray);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: var(--light);
+}
+
+/* Article Detail */
+.article-detail {
+    background: rgba(255,255,255,0.05);
+    border-radius: 20px;
+    padding: 3rem;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1);
+    margin-bottom: 3rem;
+}
+
+.article-header {
+    margin-bottom: 2rem;
+}
+
+.article-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.team-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+body.manchester-united .team-badge.manchester-united {
+    background: var(--united-red);
+}
+
+body.manchester-city .team-badge.manchester-city {
+    background: var(--city-blue);
+}
+
+.category-badge {
+    padding: 0.4rem 1rem;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    background: rgba(255,255,255,0.1);
+}
+
+.date {
+    color: var(--gray);
+    font-size: 0.9rem;
+}
+
+.article-title {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1rem;
+}
+
+body.manchester-united .article-title {
+    color: var(--united-red);
+}
+
+body.manchester-city .article-title {
+    color: var(--city-blue);
+}
+
+/* Article Image */
+.article-image {
+    margin: 2rem 0;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Article Video */
+.article-video {
+    margin: 2rem 0;
+    border-radius: 15px;
+    overflow: hidden;
+    background: #000;
+}
+
+.article-video iframe,
+.article-video video {
+    width: 100%;
+    display: block;
+    border-radius: 15px;
+}
+
+/* Article Body */
+.article-body {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--light);
+    margin: 2rem 0;
+}
+
+.article-body p {
+    margin-bottom: 1.5rem;
+}
+
+/* Article Footer */
+.article-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.share-section h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.share-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    color: white;
+}
+
+.share-btn.facebook {
+    background: #1877F2;
+}
+
+.share-btn.twitter {
+    background: #1DA1F2;
+}
+
+.share-btn.whatsapp {
+    background: #25D366;
+}
+
+.share-btn.copy {
+    background: var(--gray);
+}
+
+.share-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Related Articles */
+.related-articles {
+    margin-top: 4rem;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.related-card {
+    background: rgba(255,255,255,0.05);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.related-card:hover {
+    transform: translateY(-5px);
+}
+
+.related-image {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.related-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.related-content {
+    padding: 1.5rem;
+}
+
+.related-date {
+    color: var(--gray);
+    font-size: 0.85rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.related-title {
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+.related-title a {
+    color: var(--light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+body.manchester-united .related-title a:hover {
+    color: var(--united-red);
+}
+
+body.manchester-city .related-title a:hover {
+    color: var(--city-blue);
+}
+
+/* Footer */
+footer {
+    background: rgba(15, 23, 42, 0.95);
+    border-top: 1px solid rgba(255,255,255,0.1);
+    padding: 3rem 0 2rem;
+    margin-top: 4rem;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    margin-bottom: 2rem;
+    max-width: 1200px;
+    margin: 0 auto 2rem;
+    padding: 0 20px;
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--united-red), var(--city-blue));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+.footer-description {
+    color: var(--gray);
+    line-height: 1.6;
+}
+
+.footer-links h4 {
+    color: var(--light);
+    margin-bottom: 1rem;
+}
+
+.footer-links a {
+    display: block;
+    color: var(--gray);
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--light);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: var(--gray);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 20px 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    nav { display: none; }
+    .article-detail { padding: 2rem 1.5rem; }
+    .article-title { font-size: 2rem; }
+    .article-body { font-size: 1rem; }
+    .share-buttons { flex-direction: column; }
+    .share-btn { width: 100%; justify-content: center; }
+    .related-grid { grid-template-columns: 1fr; }
+    .footer-content { grid-template-columns: 1fr; }
+}
