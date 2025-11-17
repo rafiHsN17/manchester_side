@@ -81,31 +81,36 @@ if (empty($articles)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Manchester Side - Berita Terkini MU & Manchester City</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="assets/css/index.css">
 </head>
 <body>
     <!-- Header -->
     <header>
-        <nav>
-    <a href="index.php"><i class="fas fa-home"></i> Home</a>
-    <div class="dropdown">
-        <a href="#"><i class="fas fa-shield-alt"></i> Tim <i class="fas fa-chevron-down"></i></a>
-        <div class="dropdown-content">
-            <a href="manchester-united.php">🔴 Manchester United</a>
-            <a href="manchester-city.php">🔵 Manchester City</a>
-            <a href="head-to-head.php">⚔️ Head to Head</a>
+        <div class="container header-content">
+            <div class="logo">
+                <i class="fas fa-futbol"></i>
+                <h1>MANCHESTER SIDE</h1>
+            </div>
+            <nav>
+                <a href="index.php" class="active"><i class="fas fa-home"></i> Home</a>
+                
+                <!-- Dropdown Tim -->
+                <div class="dropdown">
+                    <span class="dropdown-toggle">
+                        <i class="fas fa-shield-alt"></i> Tim <i class="fas fa-chevron-down"></i>
+                    </span>
+                    <div class="dropdown-menu">
+                        <a href="manchester-united.php" class="mu">🔴 Manchester United</a>
+                        <a href="manchester-city.php" class="city">🔵 Manchester City</a>
+                        <a href="head-to-head.php" class="h2h">⚔️ Head to Head</a>
+                    </div>
+                </div>
+                
+                <?php if(isAdminLoggedIn()): ?>
+                    <a href="admin/dashboard.php"><i class="fas fa-cog"></i> Admin</a>
+                <?php endif; ?>
+            </nav>
         </div>
-    </div>
-    <a href="transfer.php"><i class="fas fa-exchange-alt"></i> Transfer</a>
-    <a href="injury.php"><i class="fas fa-medkit"></i> Injury</a>
-    <a href="matches.php"><i class="fas fa-calendar"></i> Matches</a>
-    <?php if(isset($_SESSION['user_logged_in']) && $_SESSION['user_logged_in'] === true): ?>
-        <a href="profile.php"><i class="fas fa-user"></i> Profile</a>
-        <a href="logout-user.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
-    <?php else: ?>
-        <a href="login.php"><i class="fas fa-sign-in-alt"></i> Login</a>
-    <?php endif; ?>
-</nav>
     </header>
 
     <!-- Hero Section -->
@@ -204,10 +209,10 @@ if (empty($articles)) {
                 
                 <div class="footer-links">
                     <h4>Teams</h4>
-                    <a href="#"><i class="fas fa-shield-alt"></i> Manchester United</a>
-                    <a href="#"><i class="fas fa-shield-alt"></i> Manchester City</a>
-                    <a href="#"><i class="fas fa-trophy"></i> Premier League</a>
-                    <a href="#"><i class="fas fa-futbol"></i> Champions League</a>
+                    <a href="manchester-united.php"><i class="fas fa-shield-alt"></i> Manchester United</a>
+                    <a href="manchester-city.php"><i class="fas fa-shield-alt"></i> Manchester City</a>
+                    <a href="head-to-head.php"><i class="fas fa-trophy"></i> Head to Head</a>
+                    <a href="#"><i class="fas fa-futbol"></i> Premier League</a>
                 </div>
             </div>
             
@@ -217,6 +222,6 @@ if (empty($articles)) {
         </div>
     </footer>
 
-    <script src="js/index.js"></script>
+    <script src="assets/js/index.js"></script>
 </body>
 </html>
