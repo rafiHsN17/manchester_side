@@ -85,33 +85,7 @@ if (empty($articles)) {
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <i class="fas fa-futbol"></i>
-                <h1>MANCHESTER SIDE</h1>
-            </div>
-            <nav>
-                <a href="index.php" class="active"><i class="fas fa-home"></i> Home</a>
-                
-                <!-- Dropdown Tim -->
-                <div class="dropdown">
-                    <span class="dropdown-toggle">
-                        <i class="fas fa-shield-alt"></i> Tim <i class="fas fa-chevron-down"></i>
-                    </span>
-                    <div class="dropdown-menu">
-                        <a href="manchester-united.php" class="mu">🔴 Manchester United</a>
-                        <a href="manchester-city.php" class="city">🔵 Manchester City</a>
-                        <a href="head-to-head.php" class="h2h">⚔️ Head to Head</a>
-                    </div>
-                </div>
-                
-                <?php if(isAdminLoggedIn()): ?>
-                    <a href="admin/dashboard.php"><i class="fas fa-cog"></i> Admin</a>
-                <?php endif; ?>
-            </nav>
-        </div>
-    </header>
+    <?php include __DIR__ . '/includes/header.php'; ?>
 
     <!-- Hero Section -->
     <section class="hero">
