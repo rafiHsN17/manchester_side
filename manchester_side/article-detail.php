@@ -87,33 +87,7 @@ $reading_time = getReadingTime($article['content']);
 </head>
 <body class="<?php echo $article['team']; ?>">
     <!-- Header -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <i class="fas fa-futbol"></i>
-                <h1>MANCHESTER SIDE</h1>
-            </div>
-            <nav>
-                <a href="index.php"><i class="fas fa-home"></i> Home</a>
-                
-                <!-- Dropdown Tim -->
-                <div class="dropdown">
-                    <span class="dropdown-toggle">
-                        <i class="fas fa-shield-alt"></i> Tim <i class="fas fa-chevron-down"></i>
-                    </span>
-                    <div class="dropdown-menu">
-                        <a href="manchester-united.php" class="mu">🔴 Manchester United</a>
-                        <a href="manchester-city.php" class="city">🔵 Manchester City</a>
-                        <a href="head-to-head.php" class="h2h">⚔️ Head to Head</a>
-                    </div>
-                </div>
-                
-                <?php if(isAdminLoggedIn()): ?>
-                    <a href="admin/dashboard.php"><i class="fas fa-cog"></i> Admin</a>
-                <?php endif; ?>
-            </nav>
-        </div>
-    </header>
+    <?php include __DIR__ . '/includes/header.php'; ?>
 
     <!-- Article Content -->
     <main class="article-container">
@@ -122,9 +96,19 @@ $reading_time = getReadingTime($article['content']);
             <article class="article-main">
                 <!-- Breadcrumb -->
                 <div class="breadcrumb">
-                    <a href="index.php"><i class="fas fa-home"></i> Home</a>
+                    <a href="/manchester_side/index.php"><i class="fas fa-home"></i> Home</a>
                     <i class="fas fa-chevron-right"></i>
-                    <a href="<?php echo $article['team']; ?>.php"><?php echo getTeamName($article['team']); ?></a>
+                    <a href="/manchester_side/<?php echo $article['team']; ?>.php"><?php echo getTeamName($article['team']); ?></a>
+                    <?php if (!empty($article['category'])): ?>
+                        <i class="fas fa-chevron-right"></i>
+                        <?php if ($article['category'] === 'transfer'): ?>
+                            <a href="/manchester_side/pages/transfers.php">Transfer</a>
+                        <?php elseif ($article['category'] === 'injury'): ?>
+                            <a href="/manchester_side/pages/injury-news.php">Injury</a>
+                        <?php else: ?>
+                            <span><?php echo htmlspecialchars(ucfirst($article['category'])); ?></span>
+                        <?php endif; ?>
+                    <?php endif; ?>
                     <i class="fas fa-chevron-right"></i>
                     <span>Artikel</span>
                 </div>
