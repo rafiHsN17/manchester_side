@@ -54,98 +54,10 @@ $completed_matches = array_filter($matches, function($m) { return $m['status'] =
     <title>Jadwal Pertandingan - Manchester Side</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="assets/css/matches.css">
-    <style>
-        .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .dropdown-toggle {
-            color: var(--light);
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .dropdown-toggle:hover {
-            background: rgba(255,255,255,0.1);
-        }
-        
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: rgba(15, 23, 42, 0.98);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 15px;
-            min-width: 250px;
-            padding: 0.5rem 0;
-            margin-top: 0.5rem;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        
-        .dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        
-        .dropdown-menu a {
-            display: block;
-            padding: 0.75rem 1.5rem;
-            color: var(--light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-        
-        .dropdown-menu a:hover {
-            background: rgba(255,255,255,0.1);
-            padding-left: 2rem;
-        }
-        
-        .dropdown-menu a.mu { border-left: 3px solid #DA291C; }
-        .dropdown-menu a.city { border-left: 3px solid #6CABDD; }
-        .dropdown-menu a.h2h { border-left: 3px solid #FBB024; }
-    </style>
 </head>
 <body>
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <i class="fas fa-futbol"></i>
-                <h1>MANCHESTER SIDE</h1>
-            </div>
-            <nav>
-                <a href="index.php"><i class="fas fa-home"></i> Home</a>
-                
-                <div class="dropdown">
-                    <span class="dropdown-toggle">
-                        <i class="fas fa-shield-alt"></i> Tim <i class="fas fa-chevron-down"></i>
-                    </span>
-                    <div class="dropdown-menu">
-                        <a href="manchester-united.php" class="mu">🔴 Manchester United</a>
-                        <a href="manchester-city.php" class="city">🔵 Manchester City</a>
-                        <a href="head-to-head.php" class="h2h">⚔️ Head to Head</a>
-                    </div>
-                </div>
-                
-                <a href="matches.php" class="active"><i class="fas fa-calendar"></i> Matches</a>
-                <?php if(isAdminLoggedIn()): ?>
-                    <a href="admin/dashboard.php"><i class="fas fa-cog"></i> Admin</a>
-                <?php endif; ?>
-            </nav>
-        </div>
     </header>
+    <?php include __DIR__ . '/includes/header.php'; ?>
 
     <section class="matches-hero">
         <div class="container">
