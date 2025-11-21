@@ -47,23 +47,7 @@ $recent_matches = [
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <div class="container header-content">
-            <div class="logo">
-                <i class="fas fa-futbol"></i>
-                <h1>MANCHESTER SIDE</h1>
-            </div>
-            <nav>
-                <a href="index.php"><i class="fas fa-home"></i> Home</a>
-                <a href="manchester-united.php"><i class="fas fa-fire"></i> Manchester United</a>
-                <a href="manchester-city.php"><i class="fas fa-bolt"></i> Manchester City</a>
-                <a href="head-to-head.php" class="active"><i class="fas fa-trophy"></i> H2H</a>
-                <?php if(isAdminLoggedIn()): ?>
-                    <a href="admin/dashboard.php"><i class="fas fa-cog"></i> Admin</a>
-                <?php endif; ?>
-            </nav>
-        </div>
-    </header>
+    <?php include __DIR__ . '/includes/header.php'; ?>
 
     <!-- Hero Section -->
     <section class="h2h-hero">
@@ -213,7 +197,7 @@ $recent_matches = [
                     <h4>Quick Links</h4>
                     <a href="index.php"><i class="fas fa-home"></i> Home</a>
                     <a href="matches.php"><i class="fas fa-calendar"></i> Jadwal</a>
-                    <a href="transfer.php"><i class="fas fa-exchange-alt"></i> Transfer</a>
+                    <a href="/manchester_side/pages/transfers.php"><i class="fas fa-exchange-alt"></i> Transfer</a>
                     <a href="videos.php"><i class="fas fa-video"></i> Videos</a>
                 </div>
             </div>
@@ -224,6 +208,6 @@ $recent_matches = [
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script src="js/team-page.js"></script>
 </body>
 </html>
