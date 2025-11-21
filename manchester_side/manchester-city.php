@@ -184,6 +184,7 @@ $history_summary = "Manchester City didirikan pada tahun 1880 sebagai St. Mark's
             font-size: 1.8rem;
             background: linear-gradient(135deg, var(--united-red), var(--city-blue));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             font-weight: 800;
         }
@@ -648,6 +649,7 @@ $history_summary = "Manchester City didirikan pada tahun 1880 sebagai St. Mark's
             font-weight: 800;
             background: linear-gradient(135deg, var(--united-red), var(--city-blue));
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 1rem;
         }
@@ -680,7 +682,79 @@ $history_summary = "Manchester City didirikan pada tahun 1880 sebagai St. Mark's
             border-top: 1px solid rgba(255,255,255,0.1);
             color: var(--gray);
         }
+         /* Dropdown Menu Styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
         
+        .dropdown-toggle {
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+        
+        .dropdown-toggle:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: rgba(15, 23, 42, 0.98);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 15px;
+            min-width: 250px;
+            padding: 0.5rem 0;
+            margin-top: 0.5rem;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        
+        .dropdown-menu a {
+            display: block;
+            padding: 0.75rem 1.5rem;
+            color: var(--light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-radius: 0;
+        }
+        
+        .dropdown-menu a:hover {
+            background: rgba(255,255,255,0.1);
+            padding-left: 2rem;
+        }
+        
+        .dropdown-menu a.mu {
+            border-left: 3px solid var(--united-red);
+        }
+        
+        .dropdown-menu a.city {
+            border-left: 3px solid var(--city-blue);
+        }
+        
+        .dropdown-menu a.h2h {
+            border-left: 3px solid #FBB024;
+        }
+    </style>
         /* Responsive */
         @media (max-width: 768px) {
             .team-hero h1 { font-size: 2.5rem; }
@@ -700,11 +774,33 @@ $history_summary = "Manchester City didirikan pada tahun 1880 sebagai St. Mark's
             <div class="logo">
                 <i class="fas fa-futbol"></i>
                 <h1>MANCHESTER SIDE</h1>
-            </div>
+             </div>
             <nav>
                 <a href="index.php"><i class="fas fa-home"></i> Home</a>
-                <a href="manchester-united.php"><i class="fas fa-fire"></i> Manchester United</a>
-                <a href="manchester-city.php" class="active"><i class="fas fa-bolt"></i> Manchester City</a>
+                
+                 <!-- Dropdown Tim -->
+                <div class="dropdown">
+                    <span class="dropdown-toggle">
+                        <i class="fas fa-shield-alt"></i> Tim <i class="fas fa-chevron-down"></i>
+                    </span>
+                    <div class="dropdown-menu">
+                        <a href="manchester-united.php" class="mu">🔴 Manchester United</a>
+                        <a href="manchester-city.php" class="city">🔵 Manchester City</a>
+                        <a href="head-to-head.php" class="h2h">⚔️ Head to Head</a>
+                    </div>
+                </div>
+
+                <!-- Dropdown Berita -->
+                <div class="dropdown">
+                    <span class="dropdown-toggle">
+                        <i class="fas fa-newspaper"></i> Berita <i class="fas fa-chevron-down"></i>
+                    </span>
+                    <div class="dropdown-menu">
+                        <a href="/manchester_side/pages/injury-news.php" class="mu">🏥 Cedera</a>
+                        <a href="/manchester_side/pages/transfers.php" class="city">🔄 Transfer</a>
+                    </div>
+                </div>
+                
                 <?php if(isAdminLoggedIn()): ?>
                     <a href="admin/dashboard.php"><i class="fas fa-cog"></i> Admin Panel</a>
                     <a href="admin/logout.php"><i class="fas fa-sign-out-alt"></i> Logout</a>
@@ -713,6 +809,7 @@ $history_summary = "Manchester City didirikan pada tahun 1880 sebagai St. Mark's
                 <?php endif; ?>
             </nav>
         </div>
+           
     </header>
 
     <!-- Team Hero -->
