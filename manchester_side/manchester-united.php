@@ -212,6 +212,17 @@ $history_summary = "Manchester United didirikan pada tahun 1878 sebagai Newton H
                         <a href="head-to-head.php" class="h2h">⚔️ Head to Head</a>
                     </div>
                 </div>
+
+                <!-- Dropdown Berita -->
+                <div class="dropdown">
+                    <span class="dropdown-toggle">
+                        <i class="fas fa-newspaper"></i> Berita <i class="fas fa-chevron-down"></i>
+                    </span>
+                    <div class="dropdown-menu">
+                        <a href="/manchester_side/pages/injury-news.php" class="mu">🏥 Cedera</a>
+                        <a href="/manchester_side/pages/transfers.php" class="city">🔄 Transfer</a>
+                    </div>
+                </div>
                 
                 <?php if(isAdminLoggedIn()): ?>
                     <a href="admin/dashboard.php"><i class="fas fa-cog"></i> Admin Panel</a>
