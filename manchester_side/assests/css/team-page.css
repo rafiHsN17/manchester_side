@@ -1,22 +1,23 @@
 /* ============================================
-   Manchester Side - Elegant White Theme
-   Universal CSS for All Pages
+   Manchester Side - Clean & Bright Design
+   Inspired by Manchester City Official Website
+   File: assets/css/team-page.css
    ============================================ */
 
 :root {
     --united-red: #DA291C;
     --city-blue: #6CABDD;
-    --text-dark: #1a1a1a;
-    --text-gray: #666666;
-    --text-light: #999999;
+    --primary-text: #1C1C1E;
+    --secondary-text: #6E6E73;
+    --light-text: #86868B;
     --bg-white: #FFFFFF;
-    --bg-gray: #F8F9FA;
-    --border-light: #E8E8E8;
-    --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
-    --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
-    --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+    --bg-light: #FAFAFA;
+    --bg-lighter: #F5F5F7;
+    --border-color: #D2D2D7;
+    --border-light: #E5E5EA;
 }
 
+/* ==================== RESET & BASE ==================== */
 * {
     margin: 0;
     padding: 0;
@@ -24,28 +25,27 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
     background: var(--bg-white);
-    color: var(--text-dark);
+    color: var(--primary-text);
     line-height: 1.6;
-    min-height: 100vh;
+    font-size: 16px;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 24px;
+    padding: 0 20px;
 }
 
 /* ==================== HEADER ==================== */
 .main-header {
     background: var(--bg-white);
     border-bottom: 1px solid var(--border-light);
-    padding: 16px 0;
+    padding: 12px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: var(--shadow-sm);
 }
 
 .header-content {
@@ -57,39 +57,34 @@ body {
 .logo a {
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
     text-decoration: none;
-    color: var(--text-dark);
-    font-size: 20px;
+    color: var(--primary-text);
+    font-size: 18px;
     font-weight: 700;
-    transition: opacity 0.2s;
-}
-
-.logo a:hover {
-    opacity: 0.7;
 }
 
 .logo i {
-    font-size: 24px;
+    font-size: 22px;
 }
 
 /* Navigation */
 .main-nav {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 4px;
 }
 
 .nav-link {
     display: flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 16px;
-    color: var(--text-dark);
+    gap: 6px;
+    padding: 8px 14px;
+    color: var(--secondary-text);
     text-decoration: none;
-    border-radius: 8px;
+    border-radius: 6px;
     font-weight: 500;
-    font-size: 15px;
+    font-size: 14px;
     transition: all 0.2s;
     background: transparent;
     border: none;
@@ -97,11 +92,12 @@ body {
 }
 
 .nav-link:hover {
-    background: var(--bg-gray);
+    background: var(--bg-lighter);
+    color: var(--primary-text);
 }
 
 .nav-link i {
-    font-size: 16px;
+    font-size: 14px;
 }
 
 /* Dropdown */
@@ -109,12 +105,8 @@ body {
     position: relative;
 }
 
-.dropdown-toggle {
-    position: relative;
-}
-
 .dropdown-toggle .fa-chevron-down {
-    font-size: 12px;
+    font-size: 10px;
     margin-left: 4px;
     transition: transform 0.2s;
 }
@@ -125,14 +117,14 @@ body {
 
 .dropdown-menu {
     position: absolute;
-    top: calc(100% + 8px);
+    top: calc(100% + 6px);
     left: 0;
-    min-width: 220px;
+    min-width: 200px;
     background: var(--bg-white);
     border: 1px solid var(--border-light);
-    border-radius: 12px;
-    box-shadow: var(--shadow-md);
-    padding: 8px;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    padding: 6px;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-8px);
@@ -148,32 +140,34 @@ body {
 .dropdown-item {
     display: flex;
     align-items: center;
-    gap: 12px;
-    padding: 12px 16px;
-    color: var(--text-dark);
+    gap: 10px;
+    padding: 10px 12px;
+    color: var(--secondary-text);
     text-decoration: none;
-    border-radius: 8px;
-    font-size: 15px;
+    border-radius: 6px;
+    font-size: 14px;
     transition: all 0.2s;
 }
 
 .dropdown-item:hover {
-    background: var(--bg-gray);
+    background: var(--bg-lighter);
+    color: var(--primary-text);
 }
 
 .dropdown-item[data-team="manchester-united"]:hover {
-    background: rgba(218, 41, 28, 0.08);
+    background: rgba(218, 41, 28, 0.06);
     color: var(--united-red);
 }
 
 .dropdown-item[data-team="manchester-city"]:hover {
-    background: rgba(108, 171, 221, 0.08);
+    background: rgba(108, 171, 221, 0.06);
     color: var(--city-blue);
 }
 
 .dropdown-item i {
-    width: 20px;
+    width: 18px;
     text-align: center;
+    font-size: 14px;
 }
 
 /* Mobile Menu */
@@ -181,80 +175,35 @@ body {
     display: none;
     background: none;
     border: none;
-    font-size: 24px;
-    color: var(--text-dark);
+    font-size: 22px;
+    color: var(--primary-text);
     cursor: pointer;
-}
-
-@media (max-width: 768px) {
-    .mobile-menu-toggle {
-        display: block;
-    }
-    
-    .main-nav {
-        position: fixed;
-        top: 73px;
-        left: 0;
-        right: 0;
-        flex-direction: column;
-        align-items: stretch;
-        gap: 0;
-        background: var(--bg-white);
-        border-bottom: 1px solid var(--border-light);
-        padding: 16px;
-        transform: translateY(-100%);
-        opacity: 0;
-        visibility: hidden;
-        transition: all 0.3s;
-    }
-    
-    .main-nav.active {
-        transform: translateY(0);
-        opacity: 1;
-        visibility: visible;
-    }
-    
-    .dropdown-menu {
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        box-shadow: none;
-        border: none;
-        padding: 0 0 0 32px;
-        margin-top: 8px;
-    }
 }
 
 /* ==================== HERO SECTIONS ==================== */
 .hero-home {
-    padding: 80px 0;
+    padding: 60px 0;
     text-align: center;
-    background: linear-gradient(to bottom, var(--bg-white), var(--bg-gray));
-}
-
-.hero-content {
-    max-width: 800px;
-    margin: 0 auto;
+    background: var(--bg-light);
 }
 
 .hero-title {
-    font-size: 56px;
-    font-weight: 800;
-    margin-bottom: 16px;
-    letter-spacing: -1px;
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
 }
 
 .hero-subtitle {
-    font-size: 20px;
-    color: var(--text-gray);
-    margin-bottom: 48px;
+    font-size: 18px;
+    color: var(--secondary-text);
+    margin-bottom: 40px;
 }
 
 .hero-stats {
     display: flex;
     justify-content: center;
-    gap: 48px;
+    gap: 40px;
     flex-wrap: wrap;
 }
 
@@ -263,37 +212,37 @@ body {
 }
 
 .stat-number {
-    font-size: 48px;
-    font-weight: 800;
-    color: var(--text-dark);
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--primary-text);
     display: block;
 }
 
 .stat-label {
-    font-size: 14px;
-    color: var(--text-gray);
+    font-size: 13px;
+    color: var(--secondary-text);
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
 /* Team Hero */
 .team-hero {
-    padding: 80px 0 60px;
+    padding: 60px 0 40px;
     text-align: center;
-    background: var(--bg-gray);
+    background: var(--bg-light);
 }
 
 body.mu-page .team-hero {
-    background: linear-gradient(to bottom, rgba(218, 41, 28, 0.05), var(--bg-white));
+    background: linear-gradient(180deg, rgba(218, 41, 28, 0.03) 0%, var(--bg-white) 100%);
 }
 
 body.city-page .team-hero {
-    background: linear-gradient(to bottom, rgba(108, 171, 221, 0.05), var(--bg-white));
+    background: linear-gradient(180deg, rgba(108, 171, 221, 0.03) 0%, var(--bg-white) 100%);
 }
 
 .team-icon-large {
-    font-size: 80px;
-    margin-bottom: 24px;
+    font-size: 64px;
+    margin-bottom: 20px;
 }
 
 body.mu-page .team-icon-large {
@@ -305,9 +254,10 @@ body.city-page .team-icon-large {
 }
 
 .team-hero h1 {
-    font-size: 48px;
-    font-weight: 800;
+    font-size: 40px;
+    font-weight: 700;
     margin-bottom: 8px;
+    letter-spacing: -0.5px;
 }
 
 body.mu-page .team-hero h1 {
@@ -319,29 +269,29 @@ body.city-page .team-hero h1 {
 }
 
 .team-subtitle {
-    font-size: 18px;
-    color: var(--text-gray);
+    font-size: 16px;
+    color: var(--secondary-text);
 }
 
 /* ==================== SECTIONS ==================== */
 .section-latest,
 .section-teams,
-.section-matches,
 .section-info {
-    padding: 80px 0;
+    padding: 60px 0;
 }
 
 .section-title {
-    font-size: 32px;
+    font-size: 28px;
     font-weight: 700;
-    margin-bottom: 40px;
+    margin-bottom: 32px;
     display: flex;
     align-items: center;
-    gap: 12px;
+    gap: 10px;
 }
 
 .section-title i {
-    color: var(--text-gray);
+    color: var(--secondary-text);
+    font-size: 24px;
 }
 
 body.mu-page .section-title i {
@@ -355,26 +305,27 @@ body.city-page .section-title i {
 /* ==================== NEWS CARDS ==================== */
 .news-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 32px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
 }
 
 .news-card {
     background: var(--bg-white);
     border: 1px solid var(--border-light);
-    border-radius: 16px;
+    border-radius: 8px;
     overflow: hidden;
-    transition: all 0.3s;
+    transition: all 0.25s;
 }
 
 .news-card:hover {
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
 }
 
 .news-image {
     aspect-ratio: 16/9;
     overflow: hidden;
+    background: var(--bg-lighter);
 }
 
 .news-image img {
@@ -385,19 +336,19 @@ body.city-page .section-title i {
 }
 
 .news-card:hover .news-image img {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .news-content {
-    padding: 24px;
+    padding: 20px;
 }
 
 .news-meta {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 16px;
-    gap: 12px;
+    margin-bottom: 12px;
+    gap: 10px;
     flex-wrap: wrap;
 }
 
@@ -405,56 +356,57 @@ body.city-page .section-title i {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 13px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
     font-weight: 600;
-    background: var(--bg-gray);
+    background: var(--bg-lighter);
+    color: var(--secondary-text);
 }
 
 .team-badge[data-team="manchester-united"],
 .news-card[data-team="manchester-united"] .team-badge {
-    background: rgba(218, 41, 28, 0.1);
+    background: rgba(218, 41, 28, 0.08);
     color: var(--united-red);
 }
 
 .team-badge[data-team="manchester-city"],
 .news-card[data-team="manchester-city"] .team-badge {
-    background: rgba(108, 171, 221, 0.1);
+    background: rgba(108, 171, 221, 0.08);
     color: var(--city-blue);
 }
 
 .news-date {
-    font-size: 13px;
-    color: var(--text-light);
+    font-size: 12px;
+    color: var(--light-text);
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 4px;
 }
 
 .news-title {
-    font-size: 20px;
-    font-weight: 700;
-    margin-bottom: 12px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
     line-height: 1.4;
-    color: var(--text-dark);
+    color: var(--primary-text);
 }
 
 .news-excerpt {
-    font-size: 15px;
-    color: var(--text-gray);
-    margin-bottom: 20px;
+    font-size: 14px;
+    color: var(--secondary-text);
+    margin-bottom: 16px;
     line-height: 1.6;
 }
 
 .read-more {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    color: var(--text-dark);
+    gap: 6px;
+    color: var(--primary-text);
     text-decoration: none;
     font-weight: 600;
-    font-size: 15px;
+    font-size: 14px;
     transition: gap 0.2s;
 }
 
@@ -467,28 +419,28 @@ body.city-page .section-title i {
 }
 
 .read-more:hover {
-    gap: 12px;
+    gap: 10px;
 }
 
 /* ==================== TEAM CARDS ==================== */
 .teams-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 32px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
 }
 
 .team-card {
     background: var(--bg-white);
-    border: 2px solid var(--border-light);
-    border-radius: 20px;
-    padding: 48px 32px;
+    border: 1px solid var(--border-light);
+    border-radius: 8px;
+    padding: 40px 28px;
     text-align: center;
-    transition: all 0.3s;
+    transition: all 0.25s;
 }
 
 .team-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 
 .team-card[data-team="manchester-united"]:hover {
@@ -500,46 +452,48 @@ body.city-page .section-title i {
 }
 
 .team-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 24px;
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 20px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    font-size: 40px;
+    font-size: 32px;
 }
 
 .team-card[data-team="manchester-united"] .team-icon {
-    background: rgba(218, 41, 28, 0.1);
+    background: rgba(218, 41, 28, 0.08);
     color: var(--united-red);
 }
 
 .team-card[data-team="manchester-city"] .team-icon {
-    background: rgba(108, 171, 221, 0.1);
+    background: rgba(108, 171, 221, 0.08);
     color: var(--city-blue);
 }
 
 .team-card h3 {
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .team-card p {
-    color: var(--text-gray);
-    margin-bottom: 24px;
-    line-height: 1.6;
+    color: var(--secondary-text);
+    margin-bottom: 20px;
+    line-height: 1.5;
+    font-size: 14px;
 }
 
 .team-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    padding: 12px 24px;
-    border-radius: 10px;
+    padding: 10px 20px;
+    border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
+    font-size: 14px;
     transition: all 0.2s;
 }
 
@@ -554,30 +508,30 @@ body.city-page .section-title i {
 }
 
 .team-btn:hover {
-    transform: translateX(4px);
+    transform: translateX(3px);
     gap: 12px;
 }
 
 /* ==================== INFO CARDS ==================== */
 .info-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
 }
 
 .info-card {
     background: var(--bg-white);
     border: 1px solid var(--border-light);
-    border-radius: 16px;
-    padding: 32px;
+    border-radius: 8px;
+    padding: 28px;
     text-align: center;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: all 0.25s;
 }
 
 .info-card:hover {
-    box-shadow: var(--shadow-lg);
-    transform: translateY(-4px);
+    box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    transform: translateY(-3px);
 }
 
 body.mu-page .info-card:hover {
@@ -589,8 +543,8 @@ body.city-page .info-card:hover {
 }
 
 .info-card i {
-    font-size: 48px;
-    margin-bottom: 16px;
+    font-size: 40px;
+    margin-bottom: 14px;
 }
 
 body.mu-page .info-card i {
@@ -602,38 +556,40 @@ body.city-page .info-card i {
 }
 
 .info-card h3 {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .info-card p {
-    color: var(--text-gray);
-    margin-bottom: 20px;
+    color: var(--secondary-text);
+    margin-bottom: 16px;
+    font-size: 14px;
+    line-height: 1.5;
 }
 
 .info-btn {
     display: inline-block;
-    padding: 10px 20px;
-    border-radius: 8px;
+    padding: 8px 16px;
+    border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 13px;
     transition: all 0.2s;
 }
 
 body.mu-page .info-btn {
-    background: rgba(218, 41, 28, 0.1);
+    background: rgba(218, 41, 28, 0.08);
     color: var(--united-red);
 }
 
 body.city-page .info-btn {
-    background: rgba(108, 171, 221, 0.1);
+    background: rgba(108, 171, 221, 0.08);
     color: var(--city-blue);
 }
 
 .info-btn:hover {
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
 /* ==================== MODAL ==================== */
@@ -644,11 +600,11 @@ body.city-page .info-btn {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.4);
     z-index: 2000;
     align-items: center;
     justify-content: center;
-    padding: 24px;
+    padding: 20px;
 }
 
 .modal.active {
@@ -657,34 +613,35 @@ body.city-page .info-btn {
 
 .modal-content {
     background: var(--bg-white);
-    border-radius: 20px;
-    padding: 40px;
+    border-radius: 12px;
+    padding: 32px;
     max-width: 800px;
     width: 100%;
-    max-height: 90vh;
+    max-height: 85vh;
     overflow-y: auto;
-    position: relative;
 }
 
 .modal-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 32px;
-    padding-bottom: 24px;
-    border-bottom: 2px solid var(--border-light);
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-light);
 }
 
 body.mu-page .modal-header {
     border-bottom-color: var(--united-red);
+    border-bottom-width: 2px;
 }
 
 body.city-page .modal-header {
     border-bottom-color: var(--city-blue);
+    border-bottom-width: 2px;
 }
 
 .modal-header h2 {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 700;
 }
 
@@ -697,13 +654,13 @@ body.city-page .modal-header h2 {
 }
 
 .close-modal {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
     border: none;
-    background: var(--bg-gray);
-    color: var(--text-dark);
-    font-size: 24px;
+    background: var(--bg-lighter);
+    color: var(--primary-text);
+    font-size: 20px;
     cursor: pointer;
     transition: all 0.2s;
     display: flex;
@@ -712,188 +669,104 @@ body.city-page .modal-header h2 {
 }
 
 .close-modal:hover {
-    background: var(--text-dark);
+    background: var(--primary-text);
     color: white;
     transform: rotate(90deg);
 }
 
-/* ==================== FOOTER ==================== */
-.footer {
-    background: var(--bg-gray);
-    border-top: 1px solid var(--border-light);
-    padding: 48px 0 24px;
-    margin-top: 80px;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 48px;
-    margin-bottom: 32px;
-}
-
-.footer-section h3,
-.footer-section h4 {
-    margin-bottom: 16px;
-    font-weight: 700;
-}
-
-.footer-logo {
-    font-size: 24px;
-}
-
-.footer-section p {
-    color: var(--text-gray);
-    line-height: 1.6;
-}
-
-.footer-section a {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: var(--text-dark);
-    text-decoration: none;
-    margin-bottom: 12px;
-    transition: all 0.2s;
-}
-
-.footer-section a:hover {
-    color: var(--text-gray);
-    transform: translateX(4px);
-}
-
-.footer-bottom {
-    text-align: center;
-    padding-top: 24px;
-    border-top: 1px solid var(--border-light);
-    color: var(--text-gray);
-    font-size: 14px;
-}
-
-/* ==================== RESPONSIVE ==================== */
-@media (max-width: 768px) {
-    .hero-title {
-        font-size: 36px;
-    }
-    
-    .hero-subtitle {
-        font-size: 16px;
-    }
-    
-    .team-hero h1 {
-        font-size: 32px;
-    }
-    
-    .section-title {
-        font-size: 24px;
-    }
-    
-    .news-grid,
-    .teams-grid,
-    .info-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 32px;
-    }
-    
-    .modal-content {
-        padding: 24px;
-    }
-}
-
 /* ==================== ARTICLE DETAIL PAGE ==================== */
 .article-container {
-    padding: 40px 0 80px;
+    padding: 30px 0 60px;
+    background: var(--bg-white);
 }
 
 /* Breadcrumb */
 .breadcrumb {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 32px;
-    font-size: 14px;
-    color: var(--text-gray);
+    gap: 8px;
+    margin-bottom: 28px;
+    font-size: 13px;
+    color: var(--secondary-text);
 }
 
 .breadcrumb a {
-    color: var(--text-gray);
+    color: var(--secondary-text);
     text-decoration: none;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 5px;
     transition: color 0.2s;
 }
 
 .breadcrumb a:hover {
-    color: var(--text-dark);
+    color: var(--primary-text);
 }
 
 .breadcrumb i {
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .breadcrumb span {
-    color: var(--text-dark);
-    font-weight: 600;
+    color: var(--primary-text);
+    font-weight: 500;
 }
 
 /* Article Wrapper */
 .article-wrapper {
     display: grid;
-    grid-template-columns: 1fr 320px;
-    gap: 48px;
+    grid-template-columns: 1fr 300px;
+    gap: 40px;
 }
 
 /* Article Main */
 .article-main {
-    background: var(--bg-white);
+    max-width: 760px;
 }
 
 .article-header {
-    margin-bottom: 40px;
+    margin-bottom: 32px;
 }
 
 .article-meta-top {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 24px;
+    gap: 10px;
+    margin-bottom: 20px;
     flex-wrap: wrap;
 }
 
 .category-badge {
-    padding: 6px 12px;
-    border-radius: 6px;
-    font-size: 13px;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
     font-weight: 600;
-    background: var(--bg-gray);
+    background: var(--bg-lighter);
+    color: var(--secondary-text);
 }
 
 .article-title {
-    font-size: 40px;
-    font-weight: 800;
+    font-size: 36px;
+    font-weight: 700;
     line-height: 1.2;
-    margin-bottom: 24px;
-    color: var(--text-dark);
+    margin-bottom: 20px;
+    color: var(--primary-text);
+    letter-spacing: -0.5px;
 }
 
 body.mu-page .article-title {
-    color: var(--united-red);
+    color: var(--primary-text);
 }
 
 body.city-page .article-title {
-    color: var(--city-blue);
+    color: var(--primary-text);
 }
 
 .article-meta-bottom {
     display: flex;
     align-items: center;
-    gap: 24px;
-    padding: 16px 0;
+    gap: 20px;
+    padding: 14px 0;
     border-top: 1px solid var(--border-light);
     border-bottom: 1px solid var(--border-light);
     flex-wrap: wrap;
@@ -902,21 +775,21 @@ body.city-page .article-title {
 .meta-item {
     display: flex;
     align-items: center;
-    gap: 8px;
-    color: var(--text-gray);
-    font-size: 14px;
+    gap: 6px;
+    color: var(--secondary-text);
+    font-size: 13px;
 }
 
 .meta-item i {
-    color: var(--text-light);
+    color: var(--light-text);
+    font-size: 13px;
 }
 
 /* Article Image */
 .article-image {
-    margin: 40px 0;
-    border-radius: 16px;
+    margin: 32px 0;
+    border-radius: 8px;
     overflow: hidden;
-    border: 1px solid var(--border-light);
 }
 
 .article-image img {
@@ -926,91 +799,82 @@ body.city-page .article-title {
 }
 
 .article-image figcaption {
-    padding: 16px 20px;
-    background: var(--bg-gray);
-    color: var(--text-gray);
-    font-size: 14px;
-    font-style: italic;
+    padding: 12px 16px;
+    background: var(--bg-lighter);
+    color: var(--secondary-text);
+    font-size: 13px;
+    line-height: 1.5;
 }
 
-/* Article Body */
+/* Article Body - Style seperti Man City */
 .article-body {
     font-size: 18px;
-    line-height: 1.8;
-    color: var(--text-dark);
+    line-height: 1.75;
+    color: var(--primary-text);
 }
 
 .article-body p {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
+.article-body p:first-of-type {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.6;
+    color: var(--primary-text);
+}
+
+/* Tidak ada drop cap seperti Man City */
 .article-body p:first-of-type::first-letter {
-    font-size: 64px;
-    font-weight: 800;
-    float: left;
-    line-height: 1;
-    margin: 0 12px 0 0;
-}
-
-body.mu-page .article-body p:first-of-type::first-letter {
-    color: var(--united-red);
-}
-
-body.city-page .article-body p:first-of-type::first-letter {
-    color: var(--city-blue);
+    font-size: inherit;
+    font-weight: inherit;
+    float: none;
+    line-height: inherit;
+    margin: 0;
+    color: inherit;
 }
 
 /* Article Share */
 .article-share {
-    margin: 48px 0;
-    padding: 32px;
-    background: var(--bg-gray);
-    border-radius: 16px;
+    margin: 40px 0;
+    padding: 24px;
+    background: var(--bg-light);
+    border-radius: 8px;
 }
 
 .article-share h3 {
-    font-size: 20px;
-    margin-bottom: 20px;
+    font-size: 18px;
+    margin-bottom: 16px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
+    font-weight: 600;
 }
 
 .share-buttons {
     display: flex;
-    gap: 12px;
+    gap: 10px;
     flex-wrap: wrap;
 }
 
 .share-btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    border-radius: 10px;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 6px;
     border: none;
     cursor: pointer;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 13px;
     transition: all 0.2s;
     color: white;
 }
 
-.share-btn.facebook {
-    background: #1877F2;
-}
-
-.share-btn.twitter {
-    background: #1DA1F2;
-}
-
-.share-btn.whatsapp {
-    background: #25D366;
-}
-
-.share-btn.copy {
-    background: var(--text-gray);
-}
+.share-btn.facebook { background: #1877F2; }
+.share-btn.twitter { background: #1DA1F2; }
+.share-btn.whatsapp { background: #25D366; }
+.share-btn.copy { background: var(--secondary-text); }
 
 .share-btn:hover {
     transform: translateY(-2px);
@@ -1019,41 +883,42 @@ body.city-page .article-body p:first-of-type::first-letter {
 
 /* Related Section */
 .related-section {
-    margin-top: 60px;
-    padding-top: 48px;
-    border-top: 2px solid var(--border-light);
+    margin-top: 48px;
+    padding-top: 40px;
+    border-top: 1px solid var(--border-light);
 }
 
 body.mu-page .related-section {
-    border-top-color: var(--united-red);
+    border-top-color: var(--border-color);
 }
 
 body.city-page .related-section {
-    border-top-color: var(--city-blue);
+    border-top-color: var(--border-color);
 }
 
 .related-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
+    gap: 20px;
 }
 
 .related-card {
     background: var(--bg-white);
     border: 1px solid var(--border-light);
-    border-radius: 12px;
+    border-radius: 8px;
     overflow: hidden;
-    transition: all 0.3s;
+    transition: all 0.25s;
 }
 
 .related-card:hover {
-    box-shadow: var(--shadow-md);
-    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    transform: translateY(-2px);
 }
 
 .related-image {
     aspect-ratio: 16/9;
     overflow: hidden;
+    background: var(--bg-lighter);
 }
 
 .related-image img {
@@ -1064,25 +929,25 @@ body.city-page .related-section {
 }
 
 .related-card:hover .related-image img {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .related-content {
-    padding: 20px;
+    padding: 16px;
 }
 
 .related-date {
     display: block;
-    font-size: 13px;
-    color: var(--text-light);
+    font-size: 12px;
+    color: var(--light-text);
     margin-bottom: 8px;
 }
 
 .related-title a {
-    color: var(--text-dark);
+    color: var(--primary-text);
     text-decoration: none;
-    font-size: 16px;
-    font-weight: 700;
+    font-size: 15px;
+    font-weight: 600;
     line-height: 1.4;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -1102,25 +967,25 @@ body.city-page .related-title a:hover {
 /* Article Sidebar */
 .article-sidebar {
     position: sticky;
-    top: 100px;
+    top: 90px;
     height: fit-content;
 }
 
 .sidebar-widget {
-    background: var(--bg-white);
+    background: var(--bg-light);
     border: 1px solid var(--border-light);
-    border-radius: 16px;
-    padding: 24px;
-    margin-bottom: 24px;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
 .widget-title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
-    margin-bottom: 16px;
+    margin-bottom: 12px;
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 8px;
 }
 
 body.mu-page .widget-title {
@@ -1132,20 +997,21 @@ body.city-page .widget-title {
 }
 
 .sidebar-widget p {
-    color: var(--text-gray);
-    line-height: 1.6;
-    margin-bottom: 20px;
+    color: var(--secondary-text);
+    line-height: 1.5;
+    margin-bottom: 16px;
+    font-size: 14px;
 }
 
 .widget-btn {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
-    padding: 10px 20px;
-    border-radius: 10px;
+    gap: 6px;
+    padding: 8px 16px;
+    border-radius: 6px;
     text-decoration: none;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 13px;
     transition: all 0.2s;
 }
 
@@ -1160,27 +1026,83 @@ body.city-page .widget-btn {
 }
 
 .widget-btn:hover {
-    transform: translateX(4px);
-    gap: 12px;
+    transform: translateX(3px);
+    gap: 10px;
 }
 
 .team-widget {
-    border-top: 4px solid;
+    border-left: 3px solid;
 }
 
 body.mu-page .team-widget {
-    border-top-color: var(--united-red);
+    border-left-color: var(--united-red);
 }
 
 body.city-page .team-widget {
-    border-top-color: var(--city-blue);
+    border-left-color: var(--city-blue);
 }
 
-/* ==================== RESPONSIVE ARTICLE ==================== */
+/* ==================== FOOTER ==================== */
+.footer {
+    background: var(--bg-light);
+    border-top: 1px solid var(--border-light);
+    padding: 40px 0 20px;
+    margin-top: 60px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 28px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    margin-bottom: 14px;
+    font-weight: 700;
+    font-size: 16px;
+}
+
+.footer-logo {
+    font-size: 20px;
+}
+
+.footer-section p {
+    color: var(--secondary-text);
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+.footer-section a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--secondary-text);
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.footer-section a:hover {
+    color: var(--primary-text);
+    transform: translateX(3px);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-light);
+    color: var(--secondary-text);
+    font-size: 13px;
+}
+
+/* ==================== RESPONSIVE ==================== */
 @media (max-width: 1024px) {
     .article-wrapper {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 32px;
     }
     
     .article-sidebar {
@@ -1189,16 +1111,77 @@ body.city-page .team-widget {
 }
 
 @media (max-width: 768px) {
-    .article-title {
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .main-nav {
+        position: fixed;
+        top: 57px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: var(--bg-white);
+        border-bottom: 1px solid var(--border-light);
+        padding: 12px;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+    }
+    
+    .main-nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        padding: 0 0 0 24px;
+        margin-top: 6px;
+    }
+    
+    .hero-title {
+        font-size: 32px;
+    }
+    
+    .hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .team-hero h1 {
         font-size: 28px;
+    }
+    
+    .section-title {
+        font-size: 22px;
+    }
+    
+    .news-grid,
+    .teams-grid,
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .article-title {
+        font-size: 26px;
     }
     
     .article-body {
         font-size: 16px;
     }
     
-    .article-body p:first-of-type::first-letter {
-        font-size: 48px;
+    .article-body p:first-of-type {
+        font-size: 17px;
     }
     
     .related-grid {
@@ -1213,6 +1196,37 @@ body.city-page .team-widget {
         width: 100%;
         justify-content: center;
     }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+    
+    .modal-content {
+        padding: 24px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 16px;
+    }
+    
+    .hero-title {
+        font-size: 28px;
+    }
+    
+    .stat-number {
+        font-size: 32px;
+    }
+    
+    .article-title {
+        font-size: 24px;
+    }
+    
+    .article-body {
+        font-size: 15px;
+    }
 }
 
 /* ==================== UTILITIES ==================== */
@@ -1221,13 +1235,353 @@ body.city-page .team-widget {
 }
 
 .mb-2 {
-    margin-bottom: 16px;
+    margin-bottom: 12px;
 }
 
 .mb-3 {
-    margin-bottom: 24px;
+    margin-bottom: 20px;
 }
 
 .mb-4 {
-    margin-bottom: 32px;
+    margin-bottom: 28px;
 }
+
+/* ==================== SCROLLBAR STYLING ==================== */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-lighter);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--border-color);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-text);
+}
+
+/* ==================== LOADING STATE ==================== */
+.loading {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid var(--border-light);
+    border-radius: 50%;
+    border-top-color: var(--primary-text);
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ==================== SMOOTH TRANSITIONS ==================== */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+button {
+    font-family: inherit;
+}
+
+/* ==================== FOCUS STATES ==================== */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 2px solid var(--city-blue);
+    outline-offset: 2px;
+}
+
+body.mu-page a:focus,
+body.mu-page button:focus {
+    outline-color: var(--united-red);
+}
+
+/* ==================== PRINT STYLES ==================== */
+@media print {
+    .main-header,
+    .article-sidebar,
+    .article-share,
+    .related-section,
+    .footer {
+        display: none;
+    }
+    
+    .article-container {
+        padding: 0;
+    }
+    
+    .article-wrapper {
+        grid-template-columns: 1fr;
+    }
+    
+    .article-main {
+        max-width: 100%;
+    }
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    animation: fadeIn 0.4s ease;
+}
+
+/* ==================== ADDITIONAL ARTICLE STYLES ==================== */
+.article-body h2 {
+    font-size: 24px;
+    font-weight: 700;
+    margin: 32px 0 16px;
+    color: var(--primary-text);
+}
+
+.article-body h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 28px 0 14px;
+    color: var(--primary-text);
+}
+
+.article-body ul,
+.article-body ol {
+    margin: 16px 0;
+    padding-left: 24px;
+}
+
+.article-body li {
+    margin-bottom: 8px;
+    line-height: 1.7;
+}
+
+.article-body blockquote {
+    margin: 24px 0;
+    padding: 16px 20px;
+    border-left: 4px solid var(--border-color);
+    background: var(--bg-light);
+    font-style: italic;
+    color: var(--secondary-text);
+}
+
+body.mu-page .article-body blockquote {
+    border-left-color: var(--united-red);
+}
+
+body.city-page .article-body blockquote {
+    border-left-color: var(--city-blue);
+}
+
+.article-body a {
+    color: var(--city-blue);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s;
+}
+
+body.mu-page .article-body a {
+    color: var(--united-red);
+}
+
+.article-body a:hover {
+    border-bottom-color: currentColor;
+}
+
+.article-body strong {
+    font-weight: 700;
+}
+
+.article-body em {
+    font-style: italic;
+}
+
+/* ==================== TABLE STYLES ==================== */
+.article-body table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+}
+
+.article-body table th,
+.article-body table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-light);
+}
+
+.article-body table th {
+    background: var(--bg-light);
+    font-weight: 700;
+    color: var(--primary-text);
+}
+
+.article-body table tr:last-child td {
+    border-bottom: none;
+}
+
+/* ==================== CODE STYLES ==================== */
+.article-body code {
+    padding: 2px 6px;
+    background: var(--bg-lighter);
+    border-radius: 4px;
+    font-size: 0.9em;
+    font-family: 'Courier New', monospace;
+    color: var(--primary-text);
+}
+
+.article-body pre {
+    padding: 16px;
+    background: var(--bg-lighter);
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 20px 0;
+}
+
+.article-body pre code {
+    padding: 0;
+    background: transparent;
+}
+
+/* ==================== VIDEO EMBED ==================== */
+.article-body iframe {
+    max-width: 100%;
+    margin: 24px 0;
+    border-radius: 8px;
+}
+
+/* ==================== BADGE VARIANTS ==================== */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.badge-primary {
+    background: var(--bg-lighter);
+    color: var(--primary-text);
+}
+
+.badge-mu {
+    background: rgba(218, 41, 28, 0.08);
+    color: var(--united-red);
+}
+
+.badge-city {
+    background: rgba(108, 171, 221, 0.08);
+    color: var(--city-blue);
+}
+
+/* ==================== BUTTON VARIANTS ==================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s;
+    text-decoration: none;
+}
+
+.btn-primary {
+    background: var(--primary-text);
+    color: white;
+}
+
+.btn-primary:hover {
+    background: var(--secondary-text);
+    transform: translateY(-2px);
+}
+
+.btn-mu {
+    background: var(--united-red);
+    color: white;
+}
+
+.btn-mu:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.btn-city {
+    background: var(--city-blue);
+    color: white;
+}
+
+.btn-city:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--primary-text);
+}
+
+.btn-outline:hover {
+    background: var(--bg-lighter);
+}
+
+/* ==================== ALERT/NOTIFICATION ==================== */
+.alert {
+    padding: 14px 18px;
+    border-radius: 6px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.alert-info {
+    background: rgba(108, 171, 221, 0.1);
+    border-left: 3px solid var(--city-blue);
+    color: var(--primary-text);
+}
+
+.alert-success {
+    background: rgba(52, 199, 89, 0.1);
+    border-left: 3px solid #34C759;
+    color: var(--primary-text);
+}
+
+.alert-warning {
+    background: rgba(255, 149, 0, 0.1);
+    border-left: 3px solid #FF9500;
+    color: var(--primary-text);
+}
+
+.alert-error {
+    background: rgba(218, 41, 28, 0.1);
+    border-left: 3px solid var(--united-red);
+    color: var(--primary-text);
+}
+
+/* ==================== END OF CSS ==================== */
