@@ -1,16 +1,20 @@
 /* ============================================
-   Manchester Side - Team Page Styles
-   Untuk manchester-united.php dan manchester-city.php
+   Manchester Side - Elegant White Theme
+   Universal CSS for All Pages
    ============================================ */
 
 :root {
     --united-red: #DA291C;
-    --united-dark: #9E1B15;
     --city-blue: #6CABDD;
-    --city-dark: #1D4ED8;
-    --dark: #0F172A;
-    --light: #F8FAFC;
-    --gray: #64748B;
+    --text-dark: #1a1a1a;
+    --text-gray: #666666;
+    --text-light: #999999;
+    --bg-white: #FFFFFF;
+    --bg-gray: #F8F9FA;
+    --border-light: #E8E8E8;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
 }
 
 * {
@@ -20,9 +24,9 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
-    color: var(--light);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    background: var(--bg-white);
+    color: var(--text-dark);
     line-height: 1.6;
     min-height: 100vh;
 }
@@ -30,661 +34,1200 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 24px;
 }
 
-/* Header */
-header {
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding: 1rem 0;
-    position: fixed;
-    width: 100%;
+/* ==================== HEADER ==================== */
+.main-header {
+    background: var(--bg-white);
+    border-bottom: 1px solid var(--border-light);
+    padding: 16px 0;
+    position: sticky;
     top: 0;
     z-index: 1000;
+    box-shadow: var(--shadow-sm);
 }
 
 .header-content {
     display: flex;
+    align-items: center;
     justify-content: space-between;
-    align-items: center;
 }
 
-.logo {
+.logo a {
     display: flex;
     align-items: center;
-    gap: 10px;
-}
-
-.logo h1 {
-    font-size: 1.8rem;
-    background: linear-gradient(135deg, var(--united-red), var(--city-blue));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 800;
-}
-
-nav {
-    display: flex;
-    gap: 2rem;
-}
-
-nav a {
-    color: var(--light);
+    gap: 12px;
     text-decoration: none;
-    font-weight: 600;
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
-    transition: all 0.3s ease;
+    color: var(--text-dark);
+    font-size: 20px;
+    font-weight: 700;
+    transition: opacity 0.2s;
 }
 
-nav a:hover {
-    background: rgba(255,255,255,0.1);
+.logo a:hover {
+    opacity: 0.7;
 }
 
-nav a.active {
-    background: var(--united-red);
+.logo i {
+    font-size: 24px;
 }
- .dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        
-        .dropdown-toggle {
-            color: var(--light);
-            text-decoration: none;
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            cursor: pointer;
-        }
-        
-        .dropdown-toggle:hover {
-            background: rgba(255,255,255,0.1);
-        }
-        
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: rgba(15, 23, 42, 0.98);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
-            border-radius: 15px;
-            min-width: 250px;
-            padding: 0.5rem 0;
-            margin-top: 0.5rem;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(-10px);
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-        
-        .dropdown:hover .dropdown-menu {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-        
-        .dropdown-menu a {
-            display: block;
-            padding: 0.75rem 1.5rem;
-            color: var(--light);
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border-radius: 0;
-        }
-        
-        .dropdown-menu a:hover {
-            background: rgba(255,255,255,0.1);
-            padding-left: 2rem;
-        }
-        
-        .dropdown-menu a.mu {
-            border-left: 3px solid var(--united-red);
-        }
-        
-        .dropdown-menu a.city {
-            border-left: 3px solid var(--city-blue);
-        }
-        
-        .dropdown-menu a.h2h {
-            border-left: 3px solid #FBB024;
-        }
-/* Team Hero */
-.team-hero {
-    background: linear-gradient(135deg, rgba(218, 41, 28, 0.2), rgba(15, 23, 42, 0.9));
-    padding: 120px 0 80px;
+
+/* Navigation */
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 16px;
+    color: var(--text-dark);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    font-size: 15px;
+    transition: all 0.2s;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.nav-link:hover {
+    background: var(--bg-gray);
+}
+
+.nav-link i {
+    font-size: 16px;
+}
+
+/* Dropdown */
+.nav-dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    position: relative;
+}
+
+.dropdown-toggle .fa-chevron-down {
+    font-size: 12px;
+    margin-left: 4px;
+    transition: transform 0.2s;
+}
+
+.nav-dropdown.active .fa-chevron-down {
+    transform: rotate(180deg);
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    min-width: 220px;
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    box-shadow: var(--shadow-md);
+    padding: 8px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px);
+    transition: all 0.2s;
+}
+
+.nav-dropdown.active .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    color: var(--text-dark);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 15px;
+    transition: all 0.2s;
+}
+
+.dropdown-item:hover {
+    background: var(--bg-gray);
+}
+
+.dropdown-item[data-team="manchester-united"]:hover {
+    background: rgba(218, 41, 28, 0.08);
+    color: var(--united-red);
+}
+
+.dropdown-item[data-team="manchester-city"]:hover {
+    background: rgba(108, 171, 221, 0.08);
+    color: var(--city-blue);
+}
+
+.dropdown-item i {
+    width: 20px;
     text-align: center;
 }
 
-.team-badge-large {
-    font-size: 5rem;
-    margin-bottom: 1rem;
-    color: var(--united-red);
+/* Mobile Menu */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: var(--text-dark);
+    cursor: pointer;
 }
 
-.team-hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--united-red);
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .main-nav {
+        position: fixed;
+        top: 73px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: var(--bg-white);
+        border-bottom: 1px solid var(--border-light);
+        padding: 16px;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+    }
+    
+    .main-nav.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        border: none;
+        padding: 0 0 0 32px;
+        margin-top: 8px;
+    }
 }
 
-.team-nickname {
-    font-size: 1.3rem;
-    color: var(--gray);
-    margin-bottom: 3rem;
+/* ==================== HERO SECTIONS ==================== */
+.hero-home {
+    padding: 80px 0;
+    text-align: center;
+    background: linear-gradient(to bottom, var(--bg-white), var(--bg-gray));
 }
 
-.team-stats {
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hero-title {
+    font-size: 56px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+}
+
+.hero-subtitle {
+    font-size: 20px;
+    color: var(--text-gray);
+    margin-bottom: 48px;
+}
+
+.hero-stats {
     display: flex;
     justify-content: center;
-    gap: 3rem;
+    gap: 48px;
     flex-wrap: wrap;
 }
 
-.team-stat {
+.stat-box {
     text-align: center;
 }
 
 .stat-number {
-    display: block;
-    font-size: 2.5rem;
+    font-size: 48px;
     font-weight: 800;
-    color: var(--united-red);
+    color: var(--text-dark);
+    display: block;
 }
 
 .stat-label {
-    color: var(--gray);
-    font-size: 0.9rem;
+    font-size: 14px;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
 }
 
-/* Matches Section */
-.matches-section {
-    margin: 3rem 0;
+/* Team Hero */
+.team-hero {
+    padding: 80px 0 60px;
+    text-align: center;
+    background: var(--bg-gray);
+}
+
+body.mu-page .team-hero {
+    background: linear-gradient(to bottom, rgba(218, 41, 28, 0.05), var(--bg-white));
+}
+
+body.city-page .team-hero {
+    background: linear-gradient(to bottom, rgba(108, 171, 221, 0.05), var(--bg-white));
+}
+
+.team-icon-large {
+    font-size: 80px;
+    margin-bottom: 24px;
+}
+
+body.mu-page .team-icon-large {
+    color: var(--united-red);
+}
+
+body.city-page .team-icon-large {
+    color: var(--city-blue);
+}
+
+.team-hero h1 {
+    font-size: 48px;
+    font-weight: 800;
+    margin-bottom: 8px;
+}
+
+body.mu-page .team-hero h1 {
+    color: var(--united-red);
+}
+
+body.city-page .team-hero h1 {
+    color: var(--city-blue);
+}
+
+.team-subtitle {
+    font-size: 18px;
+    color: var(--text-gray);
+}
+
+/* ==================== SECTIONS ==================== */
+.section-latest,
+.section-teams,
+.section-matches,
+.section-info {
+    padding: 80px 0;
 }
 
 .section-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-}
-
-.matches-table {
-    background: rgba(255,255,255,0.05);
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.match-row {
-    display: grid;
-    grid-template-columns: 150px 1fr 200px 150px;
-    gap: 1rem;
-    padding: 1.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    align-items: center;
-}
-
-.match-row:last-child {
-    border-bottom: none;
-}
-
-.match-date .date {
-    display: block;
-    font-weight: 600;
-}
-
-.match-date .time {
-    color: var(--gray);
-    font-size: 0.9rem;
-}
-
-.match-fixture {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 40px;
     display: flex;
     align-items: center;
-    gap: 1rem;
-    justify-content: center;
+    gap: 12px;
 }
 
-.current-team {
+.section-title i {
+    color: var(--text-gray);
+}
+
+body.mu-page .section-title i {
     color: var(--united-red);
-    font-weight: 700;
 }
 
-.vs {
-    color: var(--gray);
-    font-size: 0.9rem;
+body.city-page .section-title i {
+    color: var(--city-blue);
 }
 
-.match-competition .competition {
-    display: block;
-    font-weight: 600;
-}
-
-.match-competition .venue {
-    color: var(--gray);
-    font-size: 0.9rem;
-}
-
-.upcoming-badge {
-    background: var(--united-red);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-}
-
-/* News Section */
-.team-news {
-    margin: 4rem 0;
-}
-
+/* ==================== NEWS CARDS ==================== */
 .news-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 32px;
 }
 
 .news-card {
-    background: rgba(255,255,255,0.05);
-    border-radius: 20px;
-    padding: 2rem;
-    border: 1px solid rgba(255,255,255,0.1);
-    transition: transform 0.3s ease;
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: all 0.3s;
 }
 
 .news-card:hover {
-    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
 }
 
-.news-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
+.news-image {
+    aspect-ratio: 16/9;
+    overflow: hidden;
 }
 
-.category-badge {
-    background: var(--united-red);
-    color: white;
-    padding: 0.4rem 1rem;
-    border-radius: 15px;
-    font-size: 0.85rem;
+.news-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
 }
 
-.news-date {
-    color: var(--gray);
-    font-size: 0.9rem;
+.news-card:hover .news-image img {
+    transform: scale(1.05);
 }
 
-.news-title {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-}
-
-.news-excerpt {
-    color: var(--gray);
-    margin-bottom: 1.5rem;
+.news-content {
+    padding: 24px;
 }
 
 .news-meta {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
+    justify-content: space-between;
+    margin-bottom: 16px;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
-.share-btn {
-    background: transparent;
-    border: 1px solid var(--united-red);
+.team-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    background: var(--bg-gray);
+}
+
+.team-badge[data-team="manchester-united"],
+.news-card[data-team="manchester-united"] .team-badge {
+    background: rgba(218, 41, 28, 0.1);
     color: var(--united-red);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
 }
 
-.share-btn:hover {
-    background: var(--united-red);
-    color: white;
+.team-badge[data-team="manchester-city"],
+.news-card[data-team="manchester-city"] .team-badge {
+    background: rgba(108, 171, 221, 0.1);
+    color: var(--city-blue);
 }
 
-/* Info Cards Section */
-.info-cards {
-    margin: 4rem 0;
+.news-date {
+    font-size: 13px;
+    color: var(--text-light);
+    display: flex;
+    align-items: center;
+    gap: 6px;
 }
 
-.cards-grid {
+.news-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.4;
+    color: var(--text-dark);
+}
+
+.news-excerpt {
+    font-size: 15px;
+    color: var(--text-gray);
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-dark);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 15px;
+    transition: gap 0.2s;
+}
+
+.news-card[data-team="manchester-united"] .read-more {
+    color: var(--united-red);
+}
+
+.news-card[data-team="manchester-city"] .read-more {
+    color: var(--city-blue);
+}
+
+.read-more:hover {
+    gap: 12px;
+}
+
+/* ==================== TEAM CARDS ==================== */
+.teams-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 32px;
 }
 
-.info-card {
-    background: rgba(255,255,255,0.05);
+.team-card {
+    background: var(--bg-white);
+    border: 2px solid var(--border-light);
     border-radius: 20px;
-    padding: 2.5rem;
+    padding: 48px 32px;
     text-align: center;
-    border: 1px solid rgba(255,255,255,0.1);
-    transition: all 0.3s ease;
-    cursor: pointer;
+    transition: all 0.3s;
 }
 
-.info-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(218, 41, 28, 0.3);
+.team-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.team-card[data-team="manchester-united"]:hover {
     border-color: var(--united-red);
 }
 
-.info-card i {
-    font-size: 3rem;
+.team-card[data-team="manchester-city"]:hover {
+    border-color: var(--city-blue);
+}
+
+.team-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 40px;
+}
+
+.team-card[data-team="manchester-united"] .team-icon {
+    background: rgba(218, 41, 28, 0.1);
     color: var(--united-red);
-    margin-bottom: 1rem;
+}
+
+.team-card[data-team="manchester-city"] .team-icon {
+    background: rgba(108, 171, 221, 0.1);
+    color: var(--city-blue);
+}
+
+.team-card h3 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.team-card p {
+    color: var(--text-gray);
+    margin-bottom: 24px;
+    line-height: 1.6;
+}
+
+.team-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.team-card[data-team="manchester-united"] .team-btn {
+    background: var(--united-red);
+    color: white;
+}
+
+.team-card[data-team="manchester-city"] .team-btn {
+    background: var(--city-blue);
+    color: white;
+}
+
+.team-btn:hover {
+    transform: translateX(4px);
+    gap: 12px;
+}
+
+/* ==================== INFO CARDS ==================== */
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.info-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 32px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.info-card:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-4px);
+}
+
+body.mu-page .info-card:hover {
+    border-color: var(--united-red);
+}
+
+body.city-page .info-card:hover {
+    border-color: var(--city-blue);
+}
+
+.info-card i {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+body.mu-page .info-card i {
+    color: var(--united-red);
+}
+
+body.city-page .info-card i {
+    color: var(--city-blue);
 }
 
 .info-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 12px;
 }
 
 .info-card p {
-    color: var(--gray);
-    margin-bottom: 1.5rem;
+    color: var(--text-gray);
+    margin-bottom: 20px;
 }
 
-.info-card .btn {
-    background: var(--united-red);
-    color: white;
-    padding: 0.8rem 2rem;
-    border-radius: 25px;
-    text-decoration: none;
+.info-btn {
     display: inline-block;
-    transition: all 0.3s ease;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s;
 }
 
-.info-card .btn:hover {
-    background: var(--united-dark);
+body.mu-page .info-btn {
+    background: rgba(218, 41, 28, 0.1);
+    color: var(--united-red);
 }
 
-/* Modal */
+body.city-page .info-btn {
+    background: rgba(108, 171, 221, 0.1);
+    color: var(--city-blue);
+}
+
+.info-btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ==================== MODAL ==================== */
 .modal {
     display: none;
     position: fixed;
-    z-index: 2000;
-    left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
-    backdrop-filter: blur(5px);
-    overflow-y: auto;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 2000;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
 }
 
 .modal.active {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
 }
 
 .modal-content {
-    background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+    background: var(--bg-white);
     border-radius: 20px;
-    padding: 3rem;
-    max-width: 900px;
+    padding: 40px;
+    max-width: 800px;
     width: 100%;
-    max-height: 85vh;
+    max-height: 90vh;
     overflow-y: auto;
     position: relative;
-    border: 1px solid rgba(255,255,255,0.1);
-    animation: modalSlideIn 0.3s ease;
-}
-
-@keyframes modalSlideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
 }
 
 .modal-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid var(--united-red);
+    justify-content: space-between;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid var(--border-light);
+}
+
+body.mu-page .modal-header {
+    border-bottom-color: var(--united-red);
+}
+
+body.city-page .modal-header {
+    border-bottom-color: var(--city-blue);
 }
 
 .modal-header h2 {
-    font-size: 2rem;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+body.mu-page .modal-header h2 {
     color: var(--united-red);
+}
+
+body.city-page .modal-header h2 {
+    color: var(--city-blue);
 }
 
 .close-modal {
-    background: transparent;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
     border: none;
-    color: var(--gray);
-    font-size: 2rem;
+    background: var(--bg-gray);
+    color: var(--text-dark);
+    font-size: 24px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .close-modal:hover {
-    color: var(--united-red);
+    background: var(--text-dark);
+    color: white;
     transform: rotate(90deg);
 }
 
-/* Stats Grid in Modal */
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
-}
-
-.stat-item {
-    background: rgba(255,255,255,0.05);
-    padding: 2rem;
-    border-radius: 15px;
-    text-align: center;
-    border: 1px solid rgba(255,255,255,0.1);
-}
-
-.stat-value {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: var(--united-red);
-    margin-bottom: 0.5rem;
-}
-
-.stat-label {
-    color: var(--gray);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-}
-
-/* Achievements List */
-.achievements-list {
-    display: grid;
-    gap: 1.5rem;
-    max-height: 400px;
-    overflow-y: auto;
-    padding-right: 10px;
-}
-
-.achievement-item {
-    background: rgba(255,255,255,0.05);
-    padding: 1.5rem;
-    border-radius: 15px;
-    border-left: 4px solid var(--united-red);
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
-}
-
-.achievement-year {
-    background: var(--united-red);
-    color: white;
-    padding: 0.8rem 1.5rem;
-    border-radius: 15px;
-    font-weight: 700;
-    font-size: 1.2rem;
-    min-width: 80px;
-    text-align: center;
-}
-
-.achievement-title {
-    font-size: 1.2rem;
-    color: var(--light);
-    font-weight: 600;
-}
-
-/* History Content */
-.history-content {
-    background: rgba(255,255,255,0.05);
-    padding: 2rem;
-    border-radius: 15px;
-    border-left: 4px solid var(--united-red);
-    line-height: 1.8;
-    font-size: 1.1rem;
-    color: var(--light);
-}
-
-/* Competition Stats */
-.competition-stats {
-    margin-top: 3rem;
-}
-
-.competition-title {
-    color: var(--united-red);
-    text-align: center;
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
-}
-
-/* Footer */
-footer {
-    background: rgba(15, 23, 42, 0.95);
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding: 3rem 0 2rem;
-    margin-top: 4rem;
+/* ==================== FOOTER ==================== */
+.footer {
+    background: var(--bg-gray);
+    border-top: 1px solid var(--border-light);
+    padding: 48px 0 24px;
+    margin-top: 80px;
 }
 
 .footer-content {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
-    gap: 3rem;
-    margin-bottom: 2rem;
+    gap: 48px;
+    margin-bottom: 32px;
+}
+
+.footer-section h3,
+.footer-section h4 {
+    margin-bottom: 16px;
+    font-weight: 700;
 }
 
 .footer-logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--united-red), var(--city-blue));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 1rem;
+    font-size: 24px;
 }
 
-.footer-description {
-    color: var(--gray);
+.footer-section p {
+    color: var(--text-gray);
     line-height: 1.6;
 }
 
-.footer-links h4 {
-    color: var(--light);
-    margin-bottom: 1rem;
-}
-
-.footer-links a {
-    display: block;
-    color: var(--gray);
+.footer-section a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-dark);
     text-decoration: none;
-    margin-bottom: 0.5rem;
-    transition: color 0.3s ease;
+    margin-bottom: 12px;
+    transition: all 0.2s;
 }
 
-.footer-links a:hover {
-    color: var(--united-red);
+.footer-section a:hover {
+    color: var(--text-gray);
+    transform: translateX(4px);
 }
 
 .footer-bottom {
     text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    color: var(--gray);
+    padding-top: 24px;
+    border-top: 1px solid var(--border-light);
+    color: var(--text-gray);
+    font-size: 14px;
 }
 
-/* Manchester City Specific Colors */
-body.manchester-city .team-badge-large,
-body.manchester-city .team-hero h1,
-body.manchester-city .stat-number,
-body.manchester-city .current-team,
-body.manchester-city .upcoming-badge,
-body.manchester-city .category-badge,
-body.manchester-city .share-btn,
-body.manchester-city .info-card i,
-body.manchester-city .info-card .btn,
-body.manchester-city .modal-header,
-body.manchester-city .modal-header h2,
-body.manchester-city .close-modal:hover,
-body.manchester-city .stat-value,
-body.manchester-city .achievement-item,
-body.manchester-city .achievement-year,
-body.manchester-city .history-content,
-body.manchester-city .competition-title,
-body.manchester-city .footer-links a:hover {
-    color: var(--city-blue);
-    border-color: var(--city-blue);
-}
-
-body.manchester-city .upcoming-badge,
-body.manchester-city .category-badge,
-body.manchester-city .info-card .btn,
-body.manchester-city .achievement-year {
-    background: var(--city-blue);
-}
-
-body.manchester-city .share-btn:hover,
-body.manchester-city .info-card .btn:hover {
-    background: var(--city-dark);
-}
-
-body.manchester-city .info-card:hover {
-    box-shadow: 0 20px 40px rgba(108, 171, 221, 0.3);
-    border-color: var(--city-blue);
-}
-
-body.manchester-city nav a.active {
-    background: var(--city-blue);
-}
-
-body.manchester-city .team-hero {
-    background: linear-gradient(135deg, rgba(108, 171, 221, 0.2), rgba(15, 23, 42, 0.9));
-}
-
-/* Responsive */
+/* ==================== RESPONSIVE ==================== */
 @media (max-width: 768px) {
-    .team-hero h1 { font-size: 2.5rem; }
-    .team-stats { flex-direction: column; gap: 1.5rem; }
-    .match-row { grid-template-columns: 1fr; gap: 0.5rem; }
-    .news-grid, .cards-grid { grid-template-columns: 1fr; }
-    .footer-content { grid-template-columns: 1fr; }
-    nav { display: none; }
-    .modal-content { padding: 2rem 1.5rem; }
+    .hero-title {
+        font-size: 36px;
+    }
+    
+    .hero-subtitle {
+        font-size: 16px;
+    }
+    
+    .team-hero h1 {
+        font-size: 32px;
+    }
+    
+    .section-title {
+        font-size: 24px;
+    }
+    
+    .news-grid,
+    .teams-grid,
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    
+    .modal-content {
+        padding: 24px;
+    }
+}
+
+/* ==================== ARTICLE DETAIL PAGE ==================== */
+.article-container {
+    padding: 40px 0 80px;
+}
+
+/* Breadcrumb */
+.breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 32px;
+    font-size: 14px;
+    color: var(--text-gray);
+}
+
+.breadcrumb a {
+    color: var(--text-gray);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+}
+
+.breadcrumb a:hover {
+    color: var(--text-dark);
+}
+
+.breadcrumb i {
+    font-size: 12px;
+}
+
+.breadcrumb span {
+    color: var(--text-dark);
+    font-weight: 600;
+}
+
+/* Article Wrapper */
+.article-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 320px;
+    gap: 48px;
+}
+
+/* Article Main */
+.article-main {
+    background: var(--bg-white);
+}
+
+.article-header {
+    margin-bottom: 40px;
+}
+
+.article-meta-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+}
+
+.category-badge {
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    background: var(--bg-gray);
+}
+
+.article-title {
+    font-size: 40px;
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 24px;
+    color: var(--text-dark);
+}
+
+body.mu-page .article-title {
+    color: var(--united-red);
+}
+
+body.city-page .article-title {
+    color: var(--city-blue);
+}
+
+.article-meta-bottom {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 16px 0;
+    border-top: 1px solid var(--border-light);
+    border-bottom: 1px solid var(--border-light);
+    flex-wrap: wrap;
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-gray);
+    font-size: 14px;
+}
+
+.meta-item i {
+    color: var(--text-light);
+}
+
+/* Article Image */
+.article-image {
+    margin: 40px 0;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border-light);
+}
+
+.article-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.article-image figcaption {
+    padding: 16px 20px;
+    background: var(--bg-gray);
+    color: var(--text-gray);
+    font-size: 14px;
+    font-style: italic;
+}
+
+/* Article Body */
+.article-body {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text-dark);
+}
+
+.article-body p {
+    margin-bottom: 24px;
+}
+
+.article-body p:first-of-type::first-letter {
+    font-size: 64px;
+    font-weight: 800;
+    float: left;
+    line-height: 1;
+    margin: 0 12px 0 0;
+}
+
+body.mu-page .article-body p:first-of-type::first-letter {
+    color: var(--united-red);
+}
+
+body.city-page .article-body p:first-of-type::first-letter {
+    color: var(--city-blue);
+}
+
+/* Article Share */
+.article-share {
+    margin: 48px 0;
+    padding: 32px;
+    background: var(--bg-gray);
+    border-radius: 16px;
+}
+
+.article-share h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.share-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.share-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s;
+    color: white;
+}
+
+.share-btn.facebook {
+    background: #1877F2;
+}
+
+.share-btn.twitter {
+    background: #1DA1F2;
+}
+
+.share-btn.whatsapp {
+    background: #25D366;
+}
+
+.share-btn.copy {
+    background: var(--text-gray);
+}
+
+.share-btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* Related Section */
+.related-section {
+    margin-top: 60px;
+    padding-top: 48px;
+    border-top: 2px solid var(--border-light);
+}
+
+body.mu-page .related-section {
+    border-top-color: var(--united-red);
+}
+
+body.city-page .related-section {
+    border-top-color: var(--city-blue);
+}
+
+.related-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.related-card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+.related-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-4px);
+}
+
+.related-image {
+    aspect-ratio: 16/9;
+    overflow: hidden;
+}
+
+.related-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.related-card:hover .related-image img {
+    transform: scale(1.05);
+}
+
+.related-content {
+    padding: 20px;
+}
+
+.related-date {
+    display: block;
+    font-size: 13px;
+    color: var(--text-light);
+    margin-bottom: 8px;
+}
+
+.related-title a {
+    color: var(--text-dark);
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    transition: color 0.2s;
+}
+
+body.mu-page .related-title a:hover {
+    color: var(--united-red);
+}
+
+body.city-page .related-title a:hover {
+    color: var(--city-blue);
+}
+
+/* Article Sidebar */
+.article-sidebar {
+    position: sticky;
+    top: 100px;
+    height: fit-content;
+}
+
+.sidebar-widget {
+    background: var(--bg-white);
+    border: 1px solid var(--border-light);
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 24px;
+}
+
+.widget-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+body.mu-page .widget-title {
+    color: var(--united-red);
+}
+
+body.city-page .widget-title {
+    color: var(--city-blue);
+}
+
+.sidebar-widget p {
+    color: var(--text-gray);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.widget-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+body.mu-page .widget-btn {
+    background: var(--united-red);
+    color: white;
+}
+
+body.city-page .widget-btn {
+    background: var(--city-blue);
+    color: white;
+}
+
+.widget-btn:hover {
+    transform: translateX(4px);
+    gap: 12px;
+}
+
+.team-widget {
+    border-top: 4px solid;
+}
+
+body.mu-page .team-widget {
+    border-top-color: var(--united-red);
+}
+
+body.city-page .team-widget {
+    border-top-color: var(--city-blue);
+}
+
+/* ==================== RESPONSIVE ARTICLE ==================== */
+@media (max-width: 1024px) {
+    .article-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .article-sidebar {
+        position: static;
+    }
+}
+
+@media (max-width: 768px) {
+    .article-title {
+        font-size: 28px;
+    }
+    
+    .article-body {
+        font-size: 16px;
+    }
+    
+    .article-body p:first-of-type::first-letter {
+        font-size: 48px;
+    }
+    
+    .related-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .share-buttons {
+        flex-direction: column;
+    }
+    
+    .share-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* ==================== UTILITIES ==================== */
+.text-center {
+    text-align: center;
+}
+
+.mb-2 {
+    margin-bottom: 16px;
+}
+
+.mb-3 {
+    margin-bottom: 24px;
+}
+
+.mb-4 {
+    margin-bottom: 32px;
 }
