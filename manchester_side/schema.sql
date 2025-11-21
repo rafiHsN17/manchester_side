@@ -52,6 +52,20 @@ CREATE TABLE IF NOT EXISTS `users` (
   KEY `favorite_team` (`favorite_team`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+-- Tabel Admins
+CREATE TABLE IF NOT EXISTS `admins` (
+  `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(50) NOT NULL UNIQUE,
+  `password` VARCHAR(255) NOT NULL,
+  `full_name` VARCHAR(100) NOT NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- Tambahkan admin default
+INSERT INTO `admins` (username, password, full_name)
+VALUES ('admin', '$2y$10$Vz4bZ7QdJ1Y6X1Z8W9k0UeBf4gH5j6K7L8M9N0O1P2Q3R4S5T6U7V', 'Admin Utama');
+
 -- Sample Data untuk Articles
 INSERT INTO `articles` (`title`, `content`, `team`, `category`) VALUES
 ('Rashford Cetak Gol Kemenangan', 'Marcus Rashford menjadi pahlawan Manchester United dengan gol kemenangan di menit-menit akhir.', 'manchester-united', 'news'),
