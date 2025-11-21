@@ -1,770 +1,756 @@
-/* ============================================
-   Manchester Side - Team Page Styles
-   With Brighter Fonts, Logos & Dropdown Nav
-   ============================================ */
-
+/* Admin Styles - Enhanced to Match Team Page */
 :root {
-    --united-red: #DA291C;
-    --united-dark: #9E1B15;
-    --city-blue: #6CABDD;
-    --city-dark: #1D4ED8;
-    --dark: #0F172A;
-    --light: #FFFFFF;
-    --gray: #94A3B8;
+  --united-red: #DA291C;
+  --city-blue: #6CABDD;
+  --accent-gradient: linear-gradient(135deg, #DA291C 0%, #6CABDD 100%);
+  --accent-soft: linear-gradient(135deg, rgba(218,41,28,0.07), rgba(108,171,221,0.07));
+  --dark-bg: #0F172A;
+  /* Minimal, elegant white background */
+  --light-bg: #ffffff;
+  --text-dark: #0f1720; /* slightly stronger for contrast on white */
+  --text-light: #f1f5f9;
+  --gray: #6b7280;
+  --light-gray: #e6eef6;
+  --success: #10B981;
+  --warning: #FBBF24;
+  --danger: #EF4444;
+  --border-radius: 12px;
+  /* Softer, higher-quality shadows for a minimal look */
+  --box-shadow: 0 6px 18px rgba(16, 24, 40, 0.06);
+  --transition: all 0.3s ease;
 }
 
+/* Load Inter webfont for admin UI */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap');
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
-    color: #FFFFFF;
-    line-height: 1.6;
-    min-height: 100vh;
+  background-color: var(--light-bg);
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+.admin-container {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar - Manchester United/City Theme */
+.admin-sidebar {
+  width: 280px;
+  /* Keep sidebar darker for contrast against a white canvas */
+  background: linear-gradient(135deg, var(--dark-bg) 0%, #111827 100%);
+  color: var(--text-light);
+  padding: 1.5rem 1rem;
+  position: fixed;
+  height: 100%;
+  overflow-y: auto;
+  box-shadow: var(--box-shadow);
+  z-index: 100;
+}
+
+.sidebar-header {
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.sidebar-header h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.sidebar-header p {
+  color: var(--light-gray);
+  font-size: 0.9rem;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sidebar-menu a {
+  color: var(--light-gray);
+  text-decoration: none;
+  padding: 0.9rem 1.2rem;
+  border-radius: var(--border-radius);
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.sidebar-menu a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--united-red);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.sidebar-menu a:hover::before,
+.sidebar-menu a.active::before {
+  transform: translateX(0);
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu a.active {
+  background: rgba(108, 171, 221, 0.15);
+  color: var(--text-light);
+}
+
+.sidebar-menu a i {
+  width: 24px;
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+/* Main Content */
+.admin-content {
+  flex: 1;
+  padding: 2.25rem;
+  margin-left: 280px;
+  /* white canvas for a minimal admin UI */
+  background-color: var(--light-bg);
+}
+
+/* Header and panels - minimal, elegant treatments */
+.admin-header {
+  background: transparent;
+  border: 1px solid rgba(15,23,36,0.04);
+  padding: 1rem 1.25rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-header h1 {
+  font-size: 1.25rem;
+  color: var(--text-dark);
+  margin: 0;
+}
+
+.admin-form {
+  background: #ffffff;
+  border: 1px solid rgba(15,23,36,0.04);
+  padding: 1.75rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(16,24,40,0.04);
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+  max-width: 980px;
+  margin: 0 auto;
 }
 
-/* ==================== HEADER ==================== */
-header {
-    background: rgba(15, 23, 42, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    padding: 1rem 0;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
+.page-title {
+  margin-bottom: 2rem;
+  color: var(--dark-bg);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  font-size: 1.8rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--united-red);
 }
 
-.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.page-title i {
+  color: var(--united-red);
 }
 
-.logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.logo h1 {
-    font-size: 1.8rem;
-    background: linear-gradient(135deg, var(--united-red), var(--city-blue));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 800;
-}
-
-nav {
-    display: flex;
-    gap: 2rem;
-    align-items: center;
-}
-
-nav > a {
-    color: #FFFFFF;
-    text-decoration: none;
-    font-weight: 700;
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-}
-
-nav > a:hover {
-    background: rgba(255,255,255,0.1);
-}
-
-nav > a.active {
-    background: var(--united-red);
-}
-
-/* ==================== DROPDOWN MENU ==================== */
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-toggle {
-    color: #FFFFFF;
-    text-decoration: none;
-    font-weight: 700;
-    padding: 0.5rem 1rem;
-    border-radius: 25px;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    cursor: pointer;
-    background: transparent;
-    border: none;
-    font-size: 1rem;
-}
-
-.dropdown-toggle:hover {
-    background: rgba(255,255,255,0.1);
-}
-
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background: rgba(15, 23, 42, 0.98);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 15px;
-    min-width: 250px;
-    padding: 0.5rem 0;
-    margin-top: 0.5rem;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
-
-.dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.dropdown-menu a {
-    display: block;
-    padding: 0.75rem 1.5rem;
-    color: #FFFFFF;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border-radius: 0;
-    font-weight: 600;
-}
-
-.dropdown-menu a:hover {
-    background: rgba(255,255,255,0.1);
-    padding-left: 2rem;
-    transform: none;
-}
-
-.dropdown-menu a.mu {
-    border-left: 3px solid var(--united-red);
-}
-
-.dropdown-menu a.city {
-    border-left: 3px solid var(--city-blue);
-}
-
-.dropdown-menu a.h2h {
-    border-left: 3px solid #FBB024;
-}
-
-/* ==================== TEAM HERO ==================== */
-.team-hero {
-    background: linear-gradient(135deg, rgba(218, 41, 28, 0.2), rgba(15, 23, 42, 0.9));
-    padding: 120px 0 80px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Logo Background in Hero */
-.team-hero::before {
-    content: '';
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.05;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-}
-
-body:not(.manchester-city) .team-hero::before {
-    background-image: url('https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg');
-}
-
-body.manchester-city .team-hero::before {
-    background-image: url('https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg');
-}
-
-.team-badge-large {
-    font-size: 5rem;
-    margin-bottom: 1rem;
-    color: var(--united-red);
-    position: relative;
-    z-index: 1;
-}
-
-.team-hero h1 {
-    font-size: 3.5rem;
-    margin-bottom: 0.5rem;
-    color: #FFFFFF;
-    font-weight: 800;
-    position: relative;
-    z-index: 1;
-    text-shadow: 2px 2px 10px rgba(218, 41, 28, 0.5);
-}
-
-.team-nickname {
-    font-size: 1.3rem;
-    color: #E2E8F0;
-    margin-bottom: 3rem;
-    position: relative;
-    z-index: 1;
-    font-weight: 600;
-}
-
-/* ==================== MATCHES SECTION ==================== */
-.matches-section {
-    margin: 3rem 0;
-}
-
-.section-title {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 2rem;
-    color: #FFFFFF;
-    font-weight: 700;
-}
-
-.matches-table {
-    background: rgba(255,255,255,0.05);
-    border-radius: 15px;
-    overflow: hidden;
-}
-
-.match-row {
-    display: grid;
-    grid-template-columns: 150px 1fr 200px 150px;
-    gap: 1rem;
-    padding: 1.5rem;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
-    align-items: center;
-}
-
-.match-row:last-child {
-    border-bottom: none;
-}
-
-.match-date .date {
-    display: block;
-    font-weight: 700;
-    color: #FFFFFF;
-}
-
-.match-date .time {
-    color: #CBD5E1;
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-.match-fixture {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    justify-content: center;
-}
-
-.current-team {
-    color: #FFFFFF;
-    font-weight: 700;
-    font-size: 1.1rem;
-}
-
-.vs {
-    color: #CBD5E1;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.match-competition .competition {
-    display: block;
-    font-weight: 700;
-    color: #FFFFFF;
-}
-
-.match-competition .venue {
-    color: #CBD5E1;
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-.upcoming-badge {
-    background: var(--united-red);
-    color: white;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 700;
-}
-
-/* ==================== NEWS SECTION ==================== */
-.team-news {
-    margin: 4rem 0;
-}
-
-.news-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-}
-
-.news-card {
-    background: rgba(255,255,255,0.05);
-    border-radius: 20px;
-    padding: 2rem;
-    border: 1px solid rgba(255,255,255,0.1);
-    transition: transform 0.3s ease;
-}
-
-.news-card:hover {
-    transform: translateY(-5px);
-}
-
-.news-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-}
-
-.category-badge {
-    background: var(--united-red);
-    color: white;
-    padding: 0.4rem 1rem;
-    border-radius: 15px;
-    font-size: 0.85rem;
-    font-weight: 700;
-}
-
-.news-date {
-    color: #CBD5E1;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.news-title {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    color: #FFFFFF;
-    font-weight: 700;
-}
-
-.news-excerpt {
-    color: #CBD5E1;
-    margin-bottom: 1.5rem;
-    font-weight: 400;
-}
-
-.news-meta {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-}
-
-.read-time {
-    color: #CBD5E1;
-    font-size: 0.9rem;
-    font-weight: 500;
-}
-
-.share-btn {
-    background: transparent;
-    border: 1px solid var(--united-red);
-    color: #FFFFFF;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-weight: 600;
-}
-
-.share-btn:hover {
-    background: var(--united-red);
-    color: white;
-}
-
-/* ==================== INFO CARDS ==================== */
-.info-cards {
-    margin: 4rem 0;
-}
-
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-}
-
-.info-card {
-    background: rgba(255,255,255,0.05);
-    border-radius: 20px;
-    padding: 2.5rem;
-    text-align: center;
-    border: 1px solid rgba(255,255,255,0.1);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Logo Background in Info Cards */
-.info-card::before {
-    content: '';
-    position: absolute;
-    width: 200px;
-    height: 200px;
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.03;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
-}
-
-body:not(.manchester-city) .info-card::before {
-    background-image: url('https://upload.wikimedia.org/wikipedia/en/7/7a/Manchester_United_FC_crest.svg');
-}
-
-body.manchester-city .info-card::before {
-    background-image: url('https://upload.wikimedia.org/wikipedia/en/e/eb/Manchester_City_FC_badge.svg');
-}
-
-.info-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(218, 41, 28, 0.3);
-    border-color: var(--united-red);
-}
-
-.info-card i {
-    font-size: 3rem;
-    color: var(--united-red);
-    margin-bottom: 1rem;
-    position: relative;
-    z-index: 1;
-}
-
-.info-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: #FFFFFF;
-    font-weight: 700;
-    position: relative;
-    z-index: 1;
-}
-
-.info-card p {
-    color: #CBD5E1;
-    margin-bottom: 1.5rem;
-    position: relative;
-    z-index: 1;
-    font-weight: 500;
-}
-
-.info-card .btn {
-    background: var(--united-red);
-    color: white;
-    padding: 0.8rem 2rem;
-    border-radius: 25px;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s ease;
-    font-weight: 700;
-    position: relative;
-    z-index: 1;
-}
-
-.info-card .btn:hover {
-    background: var(--united-dark);
-}
-
-/* ==================== MODAL ==================== */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 2000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.8);
-    backdrop-filter: blur(5px);
-    overflow-y: auto;
-}
-
-.modal.active {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 2rem;
-}
-
-.modal-content {
-    background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
-    border-radius: 20px;
-    padding: 3rem;
-    max-width: 900px;
-    width: 100%;
-    max-height: 85vh;
-    overflow-y: auto;
-    position: relative;
-    border: 1px solid rgba(255,255,255,0.1);
-    animation: modalSlideIn 0.3s ease;
-}
-
-@keyframes modalSlideIn {
-    from {
-        opacity: 0;
-        transform: translateY(-50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.modal-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 2rem;
-    padding-bottom: 1rem;
-    border-bottom: 2px solid var(--united-red);
-}
-
-.modal-header h2 {
-    font-size: 2rem;
-    color: #FFFFFF;
-    font-weight: 700;
-}
-
-.close-modal {
-    background: transparent;
-    border: none;
-    color: #CBD5E1;
-    font-size: 2rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.close-modal:hover {
-    color: var(--united-red);
-    transform: rotate(90deg);
-}
-
-/* Stats Grid in Modal */
+/* Stats Grid */
 .stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
 }
 
-.stat-item {
-    background: rgba(255,255,255,0.05);
-    padding: 2rem;
-    border-radius: 15px;
-    text-align: center;
-    border: 1px solid rgba(255,255,255,0.1);
+.stat-card {
+  background: white;
+  /* Ensure good contrast when card background is white */
+  color: var(--text-dark);
+  border-radius: var(--border-radius);
+  padding: 1.8rem 1.5rem;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+  transition: var(--transition);
+  border-top: 4px solid var(--united-red);
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(218, 41, 28, 0.15);
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--united-red);
 }
 
 .stat-value {
-    display: block;
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: #FFFFFF;
-    margin-bottom: 0.5rem;
-    text-shadow: 2px 2px 8px rgba(218, 41, 28, 0.4);
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--united-red);
+  margin-bottom: 0.5rem;
+  display: block;
 }
 
 .stat-label {
-    color: #E2E8F0;
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    font-weight: 600;
+  color: var(--gray);
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
 }
 
-/* Achievements List */
-.achievements-list {
-    display: grid;
-    gap: 1.5rem;
-    max-height: 400px;
-    overflow-y: auto;
-    padding-right: 10px;
+/* Activity List */
+.recent-section {
+  background: white;
+  /* Make text dark on white background for readability */
+  color: var(--text-dark);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  margin-bottom: 2rem;
 }
 
-.achievement-item {
-    background: rgba(255,255,255,0.05);
-    padding: 1.5rem;
-    border-radius: 15px;
-    border-left: 4px solid var(--united-red);
-    display: flex;
-    align-items: center;
-    gap: 1.5rem;
+.recent-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--dark-bg);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
 }
 
-.achievement-year {
-    background: var(--united-red);
-    color: white;
-    padding: 0.8rem 1.5rem;
-    border-radius: 15px;
-    font-weight: 700;
-    font-size: 1.2rem;
-    min-width: 80px;
-    text-align: center;
+.recent-section h2 i {
+  color: var(--united-red);
 }
 
-.achievement-title {
-    font-size: 1.2rem;
-    color: #FFFFFF;
-    font-weight: 600;
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
 }
 
-/* History Content */
-.history-content {
-    background: rgba(255,255,255,0.05);
-    padding: 2rem;
-    border-radius: 15px;
-    border-left: 4px solid var(--united-red);
-    line-height: 1.8;
-    font-size: 1.1rem;
-    color: #E2E8F0;
-    font-weight: 400;
+.activity-item {
+  display: flex;
+  align-items: center;
+  padding: 1.2rem;
+  border-radius: var(--border-radius);
+  background: rgba(248, 250, 252, 0.8);
+  border: 1px solid var(--light-gray);
+  transition: var(--transition);
 }
 
-/* ==================== FOOTER ==================== */
-footer {
-    background: rgba(15, 23, 42, 0.95);
-    border-top: 1px solid rgba(255,255,255,0.1);
-    padding: 3rem 0 2rem;
-    margin-top: 4rem;
+.activity-item:hover {
+  background: white;
+  /* When hovered to white, ensure contained text becomes dark */
+  color: var(--text-dark);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transform: translateY(-2px);
 }
 
-.footer-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
-    gap: 3rem;
-    margin-bottom: 2rem;
+.activity-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(218, 41, 28, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1.2rem;
 }
 
-.footer-logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    background: linear-gradient(135deg, var(--united-red), var(--city-blue));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 1rem;
+.activity-icon i {
+  font-size: 1.5rem;
+  color: var(--united-red);
 }
 
-.footer-description {
-    color: #CBD5E1;
-    line-height: 1.6;
-    font-weight: 400;
+.activity-content {
+  flex: 1;
 }
 
-.footer-links h4 {
-    color: #FFFFFF;
-    margin-bottom: 1rem;
-    font-weight: 700;
+.activity-content h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+  color: var(--dark-bg);
 }
 
-.footer-links a {
-    display: block;
-    color: #CBD5E1;
-    text-decoration: none;
-    margin-bottom: 0.5rem;
-    transition: color 0.3s ease;
-    font-weight: 500;
+.activity-content p {
+  color: var(--gray);
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
 }
 
-.footer-links a:hover {
-    color: var(--united-red);
+.activity-category {
+  background: rgba(218, 41, 28, 0.1);
+  color: var(--united-red);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: inline-block;
 }
 
-.footer-bottom {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255,255,255,0.1);
-    color: #CBD5E1;
-    font-weight: 500;
+.edit-btn {
+  background: var(--united-red);
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-/* ==================== MANCHESTER CITY COLORS ==================== */
-body.manchester-city .team-badge-large,
-body.manchester-city .team-hero h1,
-body.manchester-city .stat-number,
-body.manchester-city .current-team,
-body.manchester-city .upcoming-badge,
-body.manchester-city .category-badge,
-body.manchester-city .share-btn,
-body.manchester-city .info-card i,
-body.manchester-city .info-card .btn,
-body.manchester-city .modal-header,
-body.manchester-city .close-modal:hover,
-body.manchester-city .stat-value,
-body.manchester-city .achievement-item,
-body.manchester-city .achievement-year,
-body.manchester-city .history-content,
-body.manchester-city .footer-links a:hover {
-    color: var(--city-blue);
-    border-color: var(--city-blue);
+.edit-btn:hover {
+  background: #c8231a;
+  transform: translateY(-2px);
 }
 
-body.manchester-city .upcoming-badge,
-body.manchester-city .category-badge,
-body.manchester-city .info-card .btn,
-body.manchester-city .achievement-year {
-    background: var(--city-blue);
+/* Form Styles */
+.article-form {
+  background: white;
+  /* Form panels on white should have dark text */
+  color: var(--text-dark);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin-bottom: 2.5rem;
 }
 
-body.manchester-city .share-btn:hover,
-body.manchester-city .info-card .btn:hover {
-    background: var(--city-dark);
+.form-row {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
-body.manchester-city .info-card:hover {
-    box-shadow: 0 20px 40px rgba(108, 171, 221, 0.3);
-    border-color: var(--city-blue);
+.form-group {
+  flex: 1;
 }
 
-body.manchester-city nav > a.active {
-    background: var(--city-blue);
+.form-group label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+  color: var(--dark-bg);
+  font-size: 0.95rem;
 }
 
-body.manchester-city .team-hero {
-    background: linear-gradient(135deg, rgba(108, 171, 221, 0.2), rgba(15, 23, 42, 0.9));
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid var(--light-gray);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: var(--transition);
 }
 
-body.manchester-city .team-hero h1 {
-    text-shadow: 2px 2px 10px rgba(108, 171, 221, 0.5);
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--united-red);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(218, 41, 28, 0.1);
 }
 
-body.manchester-city .stat-value {
-    text-shadow: 2px 2px 8px rgba(108, 171, 221, 0.4);
+.form-group textarea {
+  min-height: 200px;
+  resize: vertical;
 }
 
-/* ==================== RESPONSIVE ==================== */
+.btn-primary {
+  background: var(--accent-gradient);
+  color: #fff;
+  border: none;
+  padding: 0.85rem 1.4rem;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 0.975rem;
+  font-weight: 700;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+}
+
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(16,24,40,0.10);
+  opacity: 0.98;
+}
+
+.btn-primary:active {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(16,24,40,0.06);
+}
+
+/* Generic button base to unify look */
+.btn {
+  border-radius: 10px;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid transparent;
+}
+
+/* Secondary: subtle outlined button with red-blue soft hover */
+.btn-secondary {
+  background: transparent;
+  color: var(--text-dark);
+  border: 1px solid rgba(15,23,36,0.06);
+}
+
+.btn-secondary:hover {
+  background: var(--accent-soft);
+  transform: translateY(-2px);
+}
+
+/* Danger / Delete action using red-heavy gradient */
+.btn-danger {
+  background: linear-gradient(135deg, #e53e3e 0%, #c4302d 100%);
+  color: #fff;
+  border: none;
+}
+
+.btn-danger:hover { transform: translateY(-2px); box-shadow: 0 8px 22px rgba(228,62,62,0.12); }
+
+/* Outlined gradient border (useful for 'ghost' buttons) */
+.btn-outline-gradient {
+  background: transparent;
+  color: var(--text-dark);
+  border: 1px solid transparent;
+  position: relative;
+}
+.btn-outline-gradient:before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: 12px;
+  background: linear-gradient(135deg, rgba(218,41,28,0.12), rgba(108,171,221,0.12));
+}
+
+/* Make small edit buttons consistent */
+.edit-btn, .btn-edit {
+  padding: 0.45rem 0.9rem;
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+/* Table Styles */
+.articles-list {
+  background: white;
+  /* Ensure headings and table text are dark on white */
+  color: var(--text-dark);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  overflow: hidden;
+}
+
+.articles-list h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--dark-bg);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.articles-list h2 i {
+  color: var(--united-red);
+}
+
+.articles-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.articles-table th {
+  background: var(--dark-bg);
+  color: white;
+  text-align: left;
+  padding: 1.2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+}
+
+.articles-table td {
+  padding: 1.2rem;
+  border-bottom: 1px solid var(--light-gray);
+  color: var(--gray);
+}
+
+.articles-table tr:last-child td {
+  border-bottom: none;
+}
+
+.articles-table tr:nth-child(even) {
+  background: rgba(248, 250, 252, 0.8);
+}
+
+.articles-table tr:hover {
+  background: rgba(218, 41, 28, 0.03);
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.btn-edit {
+  background: var(--warning);
+  color: #000;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.btn-edit:hover {
+  background: #e0a800;
+  transform: translateY(-2px);
+}
+
+.btn-delete {
+  background: var(--danger);
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+}
+
+.btn-delete:hover {
+  background: #dc3545;
+  transform: translateY(-2px);
+}
+
+/* Login Page */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--dark-bg) 0%, #1e293b 100%);
+  padding: 1rem;
+}
+
+.login-container {
+  background: white;
+  /* Ensure text is dark on white login panel */
+  color: var(--text-dark);
+  padding: 2.5rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 450px;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: var(--united-red);
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.login-header i {
+  font-size: 3rem;
+  color: var(--united-red);
+  margin-bottom: 1rem;
+}
+
+.login-header h1 {
+  font-size: 1.8rem;
+  color: var(--dark-bg);
+  margin-bottom: 0.5rem;
+}
+
+.login-header p {
+  color: var(--gray);
+  font-size: 0.95rem;
+}
+
+.error-message {
+  background: rgba(239, 68, 68, 0.1);
+  color: var(--danger);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  text-align: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-group input {
+  padding: 1rem 1.2rem;
+  border: 1px solid var(--light-gray);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+  transition: var(--transition);
+}
+
+.form-group input:focus {
+  border-color: var(--united-red);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(218, 41, 28, 0.1);
+}
+
+.btn-login {
+  background: var(--united-red);
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-top: 0.5rem;
+}
+
+.btn-login:hover {
+  background: #c8231a;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(218, 41, 28, 0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+  .admin-sidebar {
+    width: 240px;
+  }
+  
+  .admin-content {
+    margin-left: 240px;
+  }
+}
+
 @media (max-width: 768px) {
-    .team-hero h1 { font-size: 2.5rem; }
-    .match-row { grid-template-columns: 1fr; gap: 0.5rem; }
-    .news-grid, .cards-grid { grid-template-columns: 1fr; }
-    .footer-content { grid-template-columns: 1fr; }
-    nav { display: none; }
-    .modal-content { padding: 2rem 1.5rem; }
+  .admin-container {
+    flex-direction: column;
+  }
+  
+  .admin-sidebar {
+    width: 100%;
+    position: relative;
+    height: auto;
+  }
+  
+  .admin-content {
+    margin-left: 0;
+    padding: 1.5rem;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .articles-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .activity-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .activity-icon {
+    margin-bottom: 1rem;
+  }
+  
+  .edit-btn {
+    width: 100%;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+  
+  .actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .btn-edit,
+  .btn-delete {
+    width: 100%;
+    text-align: center;
+  }
 }
